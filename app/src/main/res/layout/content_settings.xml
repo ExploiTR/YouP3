@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp"
+        android:text="@string/download_manager_settings"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mp3only"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:text="@string/mp3_only_mode"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:text="@string/view_related_settings"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fullScr"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:text="@string/fullscreen_mode"/>
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/remBar"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:text="@string/remove_toolbar_experimental"/>
+
+
+
+</LinearLayout>

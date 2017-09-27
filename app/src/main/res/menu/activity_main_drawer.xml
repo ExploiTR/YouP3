@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/go_home"
+            android:checked="true"
+            android:icon="@drawable/go_home"
+            android:title="@string/go_home" />
+
+        <item
+            android:id="@+id/go_music"
+            android:icon="@drawable/go_music"
+            android:title="@string/youtube_music" />
+
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:checkable="false"
+            android:title="@string/go_settings" />
+
+        <item
+            android:id="@+id/downloads"
+            android:checkable="false"
+            android:icon="@drawable/ic_downloads"
+            android:title="@string/go_downloads"/>
+
+        <item
+            android:id="@+id/go_me"
+            android:checkable="false"
+            android:icon="@drawable/go_me"
+            android:title="@string/about" />
+
+        <item
+            android:id="@+id/go_exit"
+            android:checkable="false"
+            android:icon="@drawable/go_exit"
+            android:title="@string/go_exit" />
+
+    </group>
+
+</menu>

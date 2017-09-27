@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="app.exploitr.nsg.youp3">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <application
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="youtube.com" />
+                <data android:host="youtube.com.tr" />
+                <data android:host="youtube.co.uk" />
+                <data android:host="m.youtube.com" />
+                <data android:host="www.youtube.com" />
+                <data android:host="www.youtube.com.tr" />
+                <data android:host="www.youtube.co.uk" />
+                <data android:host="youtu.be" />
+                <data android:host="au.youtube.com" />
+                <data android:host="br.youtube.com" />
+                <data android:host="ca.youtube.com" />
+                <data android:host="cz.youtube.com" />
+                <data android:host="de.youtube.com" />
+                <data android:host="dk.youtube.com" />
+                <data android:host="es.youtube.com" />
+                <data android:host="fi.youtube.com" />
+                <data android:host="fr.youtube.com" />
+                <data android:host="gr.youtube.com" />
+                <data android:host="hk.youtube.com" />
+                <data android:host="hu.youtube.com" />
+                <data android:host="il.youtube.com" />
+                <data android:host="in.youtube.com" />
+                <data android:host="it.youtube.com" />
+                <data android:host="jp.youtube.com" />
+                <data android:host="kr.youtube.com" />
+                <data android:host="mx.youtube.com" />
+                <data android:host="nl.youtube.com" />
+                <data android:host="nz.youtube.com" />
+                <data android:host="no.youtube.com" />
+                <data android:host="pl.youtube.com" />
+                <data android:host="ru.youtube.com" />
+                <data android:host="tr.youtube.com" />
+                <data android:host="tw.youtube.com" />
+                <data android:host="se.youtube.com" />
+                <data android:host="uk.youtube.com" />
+                <data android:host="za.youtube.com" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AboutActivity" />
+      <!--  <meta-data android:name="io.fabric.ApiKey"android:value="###############################" /> -->
+    </application>
+
+</manifest>
