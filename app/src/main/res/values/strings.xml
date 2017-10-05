@@ -15,18 +15,20 @@
     <string name="http_github_com_exploitr_login">http://github.com/exploitr/youp3</string>
     <string name="http_exploitr_wordpress_com">http://exploitrme.wordpress.com</string>
     <string name="okay">Okay</string>
-    <string name="whois">Copyrighted by ExploiTR UTTO Apache 2.0</string>
+    <string name="whois">Copyrighted by ExploiTR / Apache 2.0</string>
     <string name="TOS">TOS</string>
     <string name="textlast">\nAs written in Youtube Terms of Service,\n\n"You shall not download any Content unless you see a “download” or similar link displayed by YouTube on the Service for that Content.You shall not copy, reproduce, make available online or electronically transmit, publish, adapt, distribute, transmit, broadcast, display, sell, license, or otherwise exploit any Content for any other purposes without the prior written consent of YouTube or the respective licensors of the Content. YouTube and its licensors reserve all rights not expressly granted in and to the Service and the Content." [Source: https://www.youtube.com/static?template=terms ( goto section 5B)].\n\nSo, You are violating Youtube TOS while downloading and saving media content from youtube offline. The developer isn\'t intended to do that and doesn\'t support that, and takes to responsibility for what you do using YouP3.</string>
     <string name="go_exit">Go Exit</string>
     <string name="go_settings">Go Settings</string>
-    <string name="download_manager_settings">Content-related Settings</string>
-    <string name="fullscreen_mode">FullScreen Mode</string>
+    <string name="fullscreen_mode">Fullscreen Mode</string>
     <string name="view_related_settings">View-Related Settings</string>
-    <string name="remove_toolbar_experimental">Remove Toolbar (Experimental)</string>
-    <string name="mp3_only_mode">MP3 Only Mode</string>
-    <string name="available_formats">Available Formats : Tap To Get</string>
-    <string name="acknowledgement">Acknowledgement</string>
-    <string name="my_concept">\nSpecial thanks to Saveitoffline(All media type) and Youtubeinmp3(MP3-Only Mode) for their API Service. Without them YouP3 would just be my concept.</string>
+    <string name="remove_toolbar_experimental">Remove Toolbar </string>
     <string name="go_downloads">Go Downloads</string>
+    <string name="download_related_settings">Download-Related Settings</string>
+    <string name="no_downloads">No Downloads</string>
+    <string name="sample_name">Sample Name</string>
+    <string name="_1000294">1000294</string>
+    <string name="desktop_mode">Desktop Mode</string>
+    <string name="auto_search_videos_when_typed">Auto-Search Videos When Typed</string>
+    <string name="_5_mb">5 MB</string>
 </resources>
