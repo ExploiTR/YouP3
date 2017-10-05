@@ -12,15 +12,15 @@
 
     <com.comix.overwatch.HiveProgressView
         android:id="@+id/indicator"
-        android:layout_width="110dp"
+        android:layout_width="120dp"
         android:layout_height="120dp"
         app:hive_animDuration="2100"
         app:hive_color="#FFFFFF"
-        app:hive_cornerRadius="20"
+        app:hive_cornerRadius="5"
         app:hive_maxAlpha="255"
         app:hive_rainbow="false"
         app:hive_shrink="true"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_marginRight="8dp"
         android:drawingCacheQuality="high"
         app:layout_constraintRight_toRightOf="parent"

@@ -5,32 +5,15 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <TextView
+    <android.support.v7.widget.SwitchCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingTop="5dp"
-        android:text="@string/download_manager_settings"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-
-    <Switch
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mp3only"
+        android:id="@+id/autoSearch"
         android:padding="5dp"
         android:textSize="15sp"
-        android:text="@string/mp3_only_mode"/>
+        android:text="@string/auto_search_videos_when_typed"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:text="@string/view_related_settings"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
-
-    <Switch
+    <android.support.v7.widget.SwitchCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fullScr"
@@ -38,7 +21,16 @@
         android:textSize="15sp"
         android:text="@string/fullscreen_mode"/>
 
-    <Switch
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/deskMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:text="@string/desktop_mode"/>
+
+
+    <android.support.v7.widget.SwitchCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/remBar"

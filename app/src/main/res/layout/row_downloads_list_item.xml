@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/recyclerback"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <!-- putting paddingBottom will increment to 5+5 -->
+
+    <!-- link,path,name,progress -->
+
+    <!-- No require to show user, just for recognizing rows/ids-->
+    <TextView
+        android:id="@+id/file_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/_1000294"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/file_downloads_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_name"
+        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/file_downloads_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:text="@string/sample_name"/>
+
+    <TextView
+        android:id="@+id/file_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:text="@string/_5_mb"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/cancel_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2.5dp"
+            android:layout_weight="1"
+            android:minHeight="60dp"
+            android:src="@drawable/ic_cancel" />
+
+        <ImageButton
+            android:id="@+id/open_file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2.5dp"
+            android:layout_weight="1"
+            android:minHeight="60dp"
+            android:src="@drawable/ic_folder_open_black_24dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

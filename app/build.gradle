@@ -9,12 +9,15 @@ buildscript {
 }
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
+apply plugin: 'realm-android'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    jcenter()
+    maven {
+        url "https://jitpack.io"
+    }
 }
-
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 25
@@ -22,32 +25,21 @@ android {
     defaultConfig {
         applicationId "app.exploitr.nsg.youp3"
         minSdkVersion 19
-        targetSdkVersion 21
-        versionCode 17020906
-        versionName "06.09.2017 - readabookday"
-    }
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES.txt'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/dependencies.txt'
-        exclude 'META-INF/LGPL2.1'
+        targetSdkVersion 22
+        versionCode 17021004
+        versionName "1.0.1 - treble"
     }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.github.zjywill:OverwatchProgress:1.4'
     compile 'com.koushikdutta.ion:ion:2.2.1'
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
-        transitive = true;
-    }
 }

@@ -17,4 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.DownloadsActivity">
+        <item name="colorPrimary">#283593</item>
+        <item name="colorPrimaryDark">#001064</item>
+        <item name="colorAccent">#5f5fc4</item>
+    </style>
+
 </resources>

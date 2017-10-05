@@ -18,25 +18,42 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-                <android.support.v7.widget.SearchView
-                    android:id="@+id/search_bar_main"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-            
+            <android.support.v7.widget.SearchView
+                android:id="@+id/search_bar_main"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:visibility="gone"
-        android:src="@drawable/ic_audio_download" />
+        android:layout_gravity="end|bottom"
+        android:id="@+id/totalFab"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/fab_margin_cover_bottom"
+        android:paddingRight="@dimen/fab_margin_cover_right">
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_share_video"
+            android:visibility="invisible" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_file_download"
+            android:visibility="invisible" />
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
