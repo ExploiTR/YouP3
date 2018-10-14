@@ -39,5 +39,23 @@
         android:text="@string/remove_toolbar_experimental"/>
 
 
+    <android.support.v7.widget.SwitchCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/basicAdv"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:text="@string/basic_enabled_advanced_disabled"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/normal_des" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adv_des" />
+
 
 </LinearLayout>

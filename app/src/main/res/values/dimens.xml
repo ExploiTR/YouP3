@@ -3,6 +3,4 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
-    <dimen name="fab_margin_cover_bottom">30dp</dimen>
-    <dimen name="fab_margin_cover_right">5dp</dimen>
 </resources>

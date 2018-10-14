@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bookmarkClickable"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="150dp"
+    android:orientation="vertical"
+    android:padding="2.5dp"
+    tools:ignore="ContentDescription,RtlSymmetry,HardcodedText">
+
+    <TextView
+        android:id="@+id/titleView"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center|start"
+        android:paddingStart="5dp"
+        android:text="defTitle"
+        android:textSize="17sp" />
+
+    <ImageView
+        android:id="@+id/favicon"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:paddingStart="5dp"
+        android:layout_gravity="center|start"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/urlView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center|start"
+        android:paddingStart="5dp"
+        android:text="defUrl"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+</LinearLayout>
+

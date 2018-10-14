@@ -4,12 +4,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'io.fabric.tools:gradle:1.24.1'
+        classpath 'io.fabric.tools:gradle:1.25.4'
     }
 }
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'realm-android'
+apply plugin: 'com.google.gms.google-services'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -20,26 +21,44 @@ repositories {
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "app.exploitr.nsg.youp3"
         minSdkVersion 19
-        targetSdkVersion 22
-        versionCode 17021004
-        versionName "1.0.1 - treble"
+        targetSdkVersion 27
+        versionCode code()
+        versionName "1.0.2 - Max"
+    }
+    buildTypes {
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 }
 
+static int code() {
+    return (int) System.currentTimeSeconds()
+}
+
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile group: 'commons-io', name: 'commons-io', version: '2.5'
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
-        transitive = true;
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'commons-io:commons-io:2.6'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true
     }
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.zjywill:OverwatchProgress:1.4'
-    compile 'com.koushikdutta.ion:ion:2.2.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.github.zjywill:OverwatchProgress:1.4'
+    implementation 'com.koushikdutta.ion:ion:2.2.1'
+    implementation 'com.github.wangjiegulu:rfab:2.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:v1.7.0'
+    implementation 'com.mindorks.android:prdownloader:0.4.0'
+    //noinspection GradleDependency
+    implementation 'com.google.android.exoplayer:exoplayer:r2.5.0'
 }

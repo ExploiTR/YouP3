@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@android:color/black</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#e62117</item>
+        <item name="colorPrimaryDark">#e62117</item>
+        <item name="colorAccent">#435cf9</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -19,7 +19,13 @@
 
     <style name="AppTheme.DownloadsActivity">
         <item name="colorPrimary">#283593</item>
-        <item name="colorPrimaryDark">#001064</item>
+        <item name="colorPrimaryDark">#283593</item>
+        <item name="colorAccent">#5f5fc4</item>
+    </style>
+
+    <style name="AppTheme.BookmarkActivity">
+        <item name="colorPrimary">#263238</item>
+        <item name="colorPrimaryDark">#263238</item>
         <item name="colorAccent">#5f5fc4</item>
     </style>
 

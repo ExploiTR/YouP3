@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:rfab="http://schemas.android.com/apk/res-auto"
+    xmlns:rfal="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.exploitr.nsg.youp3.MainActivity">
+    tools:context="app.exploitr.nsg.youp3.MainActivity"
+    tools:ignore="RtlSymmetry">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,43 +20,46 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
-
-            <android.support.v7.widget.SearchView
-                android:id="@+id/search_bar_main"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-
         </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/search_bar_main"
+            android:layout_width="match_parent"
+            android:background="#d80a00"
+            android:layout_gravity="end"
+            android:layout_height="wrap_content" />
 
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:id="@+id/totalFab"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/fab_margin_cover_bottom"
-        android:paddingRight="@dimen/fab_margin_cover_right">
+    <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout
+        android:id="@+id/activity_main_rfal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        rfal:rfal_frame_alpha="0.7"
+        rfal:rfal_frame_color="#ffffff">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabShare"
+        <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton
+            android:id="@+id/activity_main_rfab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_share_video"
-            android:visibility="invisible" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="8dp"
+            rfab:rfab_color_normal="#37474f"
+            rfab:rfab_color_pressed="#263238"
+            rfab:rfab_drawable="@drawable/ic_main_rfab"
+            rfab:rfab_shadow_color="#999999"
+            rfab:rfab_shadow_dx="0dp"
+            rfab:rfab_shadow_dy="5dp"
+            rfab:rfab_shadow_radius="7dp"
+            rfab:rfab_size="normal" />
 
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_file_download"
-            android:visibility="invisible" />
+    </com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout>
 
-    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

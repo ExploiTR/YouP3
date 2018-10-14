@@ -5,8 +5,7 @@
     <string name="go_home">Go Home</string>
     <string name="about">Go About</string>
     <string name="youp3_youtube_to_mp3">YouP3</string>
-    <string name="dev_mail">exploitr</string>
-    <string name="youtube_music">Go Music</string>
+    <string name="dev_mail">By ExploiTR</string>
     <string name="dsl">This application is only to be used for personal purposes. Please read the TOS Section.</string>
     <string name="lsc">YouP3 is licensed under the terms of Apache 2.0 license.\n</string>
     <string name="lsc2">Application logo,status logos and theme logos are copyright of the developer.Additionally, some icons have been distributed under the CC-BY 4.0 license and are copyrighted by Google, Inc.\n\nIon is copyright of Koushik Dutta\n\nOverWatchProgressView is copyright of Junyi Zhang\n\nNavBar Cover Art by Devany Walsh\n</string>
@@ -21,14 +20,21 @@
     <string name="go_exit">Go Exit</string>
     <string name="go_settings">Go Settings</string>
     <string name="fullscreen_mode">Fullscreen Mode</string>
-    <string name="view_related_settings">View-Related Settings</string>
     <string name="remove_toolbar_experimental">Remove Toolbar </string>
     <string name="go_downloads">Go Downloads</string>
-    <string name="download_related_settings">Download-Related Settings</string>
     <string name="no_downloads">No Downloads</string>
     <string name="sample_name">Sample Name</string>
     <string name="_1000294">1000294</string>
     <string name="desktop_mode">Desktop Mode</string>
     <string name="auto_search_videos_when_typed">Auto-Search Videos When Typed</string>
     <string name="_5_mb">5 MB</string>
+    <string name="normal_mode_basic">Normal Mode (Basic)</string>
+    <string name="normal_des">WYSN : Basic Mode uses WebView API(s), and it uses a normal API which is written to work in this way. It\'s may be unstable, can\'t bypass ads, provides only AUDIO files (mp3) but normally doesn\'t fail anyway.</string>
+    <string name="advanced_mode">Advanced Mode</string>
+    <string name="adv_des">WYSN : Advanced Mode uses a library which also depends on a library which depends on - How Google writes YouTube\'s \'JavaScript(s)\'. So, though it provides options to download much type of video/audio(s) it can fail. Also, it\'s written by third-party, so support also can be stopped from them.</string>
+    <string name="basic_enabled_advanced_disabled">Basic : Enabled | Advanced : Disabled</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="show_bookmarks">Show Bookmarks</string>
+    <string name="no_bookmarks">No Bookmarks</string>
+    <string name="go_pages">Go Pages</string>
 </resources>

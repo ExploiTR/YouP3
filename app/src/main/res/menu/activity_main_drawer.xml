@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:checkableBehavior="single">
 
@@ -10,13 +11,14 @@
             android:title="@string/go_home" />
 
         <item
-            android:id="@+id/go_music"
-            android:icon="@drawable/go_music"
-            android:title="@string/youtube_music" />
+            android:id="@+id/go_all"
+            android:icon="@drawable/ic_pages"
+            android:title="@string/go_pages"
+            app:actionLayout="@layout/action_layout_nav_drawer" />
 
         <item
-            android:checkable="false"
             android:id="@+id/settings"
+            android:checkable="false"
             android:icon="@drawable/ic_settings"
             android:title="@string/go_settings" />
 
