@@ -2,14 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/create_book"
         android:icon="@drawable/ic_bookmark"
         android:orderInCategory="0"
         android:title="@string/bookmark"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/show_book"
         android:icon="@drawable/ic_bookmarks"
         android:orderInCategory="1"
         android:title="@string/show_bookmarks"

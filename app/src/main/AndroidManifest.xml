@@ -78,11 +78,11 @@
                 <data android:host="za.youtube.com" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity" />
+        <activity android:name=".AboutActivity" android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"/>
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="###################################" />
+            android:value="b531c330857e24f378d562b1176ce4574483c2be" />
 
         <activity
             android:name=".DownloadsActivity"
@@ -91,10 +91,6 @@
         <activity
             android:name=".BookMarkActivity"
             android:theme="@style/AppTheme.BookmarkActivity" />
-
-        <activity
-            android:name=".MediaPlayer"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

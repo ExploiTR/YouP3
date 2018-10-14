@@ -139,9 +139,17 @@
     </ScrollView>
 
     <Button
+        android:id="@+id/osl"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:text="@string/osl" />
+
+    <Button
         android:id="@+id/OK"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="fill_parent"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.2"
         android:text="@string/okay" />

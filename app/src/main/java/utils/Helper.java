@@ -45,7 +45,7 @@ public class Helper {
 
     private static final String API_KEY = "AIzaSyCcCIKRDOsePYwE88FZC5KNXG8KUpDr3oM"; //certificate restricted key
 
-    public static void verb(@NonNull Object what) {
+    public static void verb(@NonNull String what) {
         Log.v("YouP3", what.toString());
     }
 

@@ -8,7 +8,7 @@
     <string name="dev_mail">By ExploiTR</string>
     <string name="dsl">This application is only to be used for personal purposes. Please read the TOS Section.</string>
     <string name="lsc">YouP3 is licensed under the terms of Apache 2.0 license.\n</string>
-    <string name="lsc2">Application logo,status logos and theme logos are copyright of the developer.Additionally, some icons have been distributed under the CC-BY 4.0 license and are copyrighted by Google, Inc.\n\nIon is copyright of Koushik Dutta\n\nOverWatchProgressView is copyright of Junyi Zhang\n\nNavBar Cover Art by Devany Walsh\n</string>
+    <string name="lsc2">Application logo,status logos and theme logos are copyright of the developer.Additionally, some icons have been distributed under the CC-BY 4.0 license and are copyrighted by Google, Inc.\n\nNavBar Cover Art by Devany Walsh\n</string>
     <string name="license">License</string>
     <string name="disclaimer">Disclaimer</string>
     <string name="http_github_com_exploitr_login">http://github.com/exploitr/youp3</string>
@@ -37,4 +37,5 @@
     <string name="show_bookmarks">Show Bookmarks</string>
     <string name="no_bookmarks">No Bookmarks</string>
     <string name="go_pages">Go Pages</string>
+    <string name="osl">Open Source Licenses</string>
 </resources>
