@@ -19,7 +19,7 @@ Android app for downloading audio/videos directly from Youtube.
   * Stop-Resume-Pause Support (beta)
   * Background downloads (beta)
   * Realtime progress of file downloads
-  * In-App Audio and Video player.
+  * In-App Audio and Video player. (Strictly in Beta)
  ### Except Them
   * Auto-Search videos when typed on searchbar (To be enabled from settings)
   * Fullscreen mode (To be enabled from settings)
