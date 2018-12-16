@@ -1,8 +1,9 @@
 package downloader.utils;
 
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.LocalBroadcastManager;
@@ -23,7 +24,9 @@ import java.security.SecureRandom;
 
 import downloads.DownloadHistoryManager;
 import downloads.RealmController;
+import utils.DataStore;
 import utils.Helper;
+import utils.SuperToast;
 
 @SuppressWarnings({"FieldCanBeLocal", "WeakerAccess", "ResultOfMethodCallIgnored"})
 public class AdvancedDownloader {
@@ -43,13 +46,9 @@ public class AdvancedDownloader {
     private File finalFile;
     private File finalFileDir;
 
-    private AdvancedDownloader(Context context) {
+    public AdvancedDownloader(Context context) {
         this.FINAL_ID = new SecureRandom().nextInt(1024);
         this.mContext = context;
-    }
-
-    public static AdvancedDownloader getInstance(Context context) {
-        return new AdvancedDownloader(context);
     }
 
     public AdvancedDownloader setQueueObject(QueueObject object) {
@@ -67,12 +66,24 @@ public class AdvancedDownloader {
         Queue.getInstance().remove(DOWNLOAD_ID);
 
         title = Helper.getFilenameFromString(title);
+        finalFile = new File(DataStore.getInstance(mContext).getPathDownload() + title + "." + extension);
+        finalFileDir = new File(DataStore.getInstance(mContext).getPathDownload());
+
+        if (DataStore.getInstance(mContext).shouldUseDefaultDownloader()) {
+            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(link));
+            request.setDescription(title);
+            request.setTitle("Downloading Now");
+            request.allowScanningByMediaScanner();
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+            request.setDestinationUri(Uri.fromFile(finalFile));
+            DownloadManager manager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
+            manager.enqueue(request);
+            return;
+        }
 
         if (isNull(title, extension, link, file_size)) {
             makeShortToast("Download Error!");
         } else {
-            finalFile = new File(Environment.getExternalStorageDirectory() + "/YouP3/" + title + "." + extension);
-            finalFileDir = new File(Environment.getExternalStorageDirectory() + "/YouP3/");
             if (finalFile.exists()) {
                 finalFile.delete();
             }
@@ -122,7 +133,8 @@ public class AdvancedDownloader {
                                                     title,
                                                     file_size,
                                                     false,
-                                                    percent
+                                                    percent,
+                                                    downloadObject.getYtUrl()
                                             );
 
                                     Intent paw = new Intent(DOWNLOAD_PROGRESS_CHANGED);
@@ -146,9 +158,11 @@ public class AdvancedDownloader {
                                                 title,
                                                 file_size,
                                                 true,
-                                                100
+                                                100,
+                                                downloadObject.getYtUrl()
                                         );
                                 LocalBroadcastManager.getInstance(mContext).sendBroadcast(new Intent(DOWNLOAD_STARTED_FAILED_UNKNOWN));
+                                LocalBroadcastManager.getInstance(mContext).sendBroadcast(new Intent(DownloadExecutorService.download_update_intent));
                                 makeShortToast("Complete");
                             }
 
@@ -177,7 +191,7 @@ public class AdvancedDownloader {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(mContext, text, Toast.LENGTH_SHORT).show();
+                SuperToast.makeText(mContext, text, Toast.LENGTH_SHORT);
             }
         });
     }

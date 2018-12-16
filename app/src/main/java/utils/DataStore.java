@@ -2,6 +2,7 @@ package utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Environment;
 
 /**
  * Created by exploitr on 15-08-2017.
@@ -12,10 +13,11 @@ public class DataStore {
     private static final String FULLSCREEN = "full";
     private static final String REMOVETOOLBAR = "reamer";
     private static final String DESKTOPMODE = "desk";
-    private static final String AUTOSEARCH = "autoSch";
     private static final String CONV_SUPPORTED = "adrielcafe";
     private static final String NEW_USER = "new_userid";
     private static final String DOWNLOAD_MODE = "mode_of_download";
+    private static final String PATH_DOWNLOAD = "_path_download";
+    private static final String USE_DEFAULT_DOWNLOADER = "_def_ok";
 
     private static DataStore instance;
     private final SharedPreferences dataStore;
@@ -35,7 +37,6 @@ public class DataStore {
     }
 
     /* this → just to make my eyes feel good */
-
 
     public boolean isFullScreen() {
         return dataStore.getBoolean(FULLSCREEN, false);
@@ -69,21 +70,11 @@ public class DataStore {
 
     /* this → just to make my eyes feel good */
 
-    public boolean isAutoSearchEnabled() {
-        return dataStore.getBoolean(AUTOSEARCH, false);
-    }
-
-    public void setAutoSearchEnabled(boolean what) {
-        dataStore.edit().putBoolean(AUTOSEARCH, what).apply();
-    }
-
-    /* this → just to make my eyes feel good */
-
     public boolean isConversionSupported() {
         return dataStore.getBoolean(CONV_SUPPORTED, false);
     }
 
-    public void setConversionState(boolean what) {
+    public void setConversionSupported(boolean what) {
         dataStore.edit().putBoolean(CONV_SUPPORTED, what).apply();
     }
 
@@ -105,5 +96,25 @@ public class DataStore {
 
     public void setAdvancedDownloadMode(boolean what) {
         dataStore.edit().putBoolean(DOWNLOAD_MODE, what).apply();
+    }
+
+    /* this → just to make my eyes feel good */
+
+    public String getPathDownload() {
+        return dataStore.getString(PATH_DOWNLOAD, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString());
+    }
+
+    public void setPathDownload(String what) {
+        dataStore.edit().putString(PATH_DOWNLOAD, what).apply();
+    }
+
+    /* this → just to make my eyes feel good */
+
+    public boolean shouldUseDefaultDownloader() {
+        return dataStore.getBoolean(USE_DEFAULT_DOWNLOADER, false);
+    }
+
+    public void setShouldUseDefaultDownloader(boolean what) {
+        dataStore.edit().putBoolean(USE_DEFAULT_DOWNLOADER, what).apply();
     }
 }

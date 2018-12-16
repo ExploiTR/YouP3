@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:icon="@drawable/ic_bookmark"
-        android:orderInCategory="0"
-        android:title="@string/bookmark"
-        app:showAsAction="ifRoom" />
 
     <item
-        android:icon="@drawable/ic_bookmarks"
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:orderInCategory="0"
+        android:title="@string/_search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always|collapseActionView" />
+
+    <item
+        android:icon="@drawable/ic_bookmark"
+        android:id="@+id/action_bookmark"
         android:orderInCategory="1"
+        android:title="@string/bookmark"
+        app:showAsAction="always|collapseActionView" />
+
+    <item
+        android:id="@+id/action_show_bookmarks"
+        android:icon="@drawable/ic_bookmarks"
+        android:orderInCategory="2"
         android:title="@string/show_bookmarks"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom|collapseActionView" />
 
 </menu>

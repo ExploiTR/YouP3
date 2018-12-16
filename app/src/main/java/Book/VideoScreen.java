@@ -3,6 +3,7 @@ package Book;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.SparseArray;
 
@@ -27,12 +28,8 @@ public class VideoScreen {
     }
 
     public static VideoScreen load(String urlOne) {
-        if (screen != null && screen.url != null && screen.listener != null) {
-            return screen;
-        } else {
-            screen = new VideoScreen(urlOne);
-            return screen;
-        }
+        screen = new VideoScreen(urlOne);
+        return screen;
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -40,19 +37,25 @@ public class VideoScreen {
         new YouTubeExtractor(context) {
             @Override
             public void onExtractionComplete(SparseArray<YtFile> ytFiles, VideoMeta vMeta) {
-                try {
-                    Bitmap bacterial = Ion.with(context).load(vMeta.getThumbUrl()).asBitmap().get();
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bacterial.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    bow = Base64.encodeToString(byteArray, Base64.DEFAULT);
-                    listener.onComplete(bow);
-                } catch (InterruptedException | ExecutionException e) {
-                    e.printStackTrace();
-                    listener.onComplete(bow);
-                }
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Bitmap bacterial = Ion.with(context).load(vMeta.getThumbUrl()).asBitmap().get();
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            bacterial.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                            byte[] byteArray = byteArrayOutputStream.toByteArray();
+                            bow = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                            listener.onComplete(bow);
+                        } catch (InterruptedException | ExecutionException e) {
+                            e.printStackTrace();
+                            listener.onComplete(bow);
+                        }
+                    }
+                });
             }
         }.extract(url, false, false);
+        screen.url = null;
         return this;
     }
 

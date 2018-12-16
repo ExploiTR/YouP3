@@ -2,23 +2,51 @@ package utils;
 
 /*
  * Created by exploitr on 23-09-2017.
- * @unused
+ * */
 
+
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+
+import app.exploitr.nsg.youp3.R;
 
 public class NotifyCall {
 
+    @SuppressLint("StaticFieldLeak")
     private static NotifyCall instance;
     private static int id;
     private NotificationManagerCompat mNotifyManager;
     private NotificationCompat.Builder build;
+    private Notification buildO;
+    private NotificationManager manager;
+    private boolean isO = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    private NotificationChannel notificationChannel;
+    private Context mContext;
 
     private NotifyCall(Context context, String title, String contentText, int idNew) {
+        mContext = context;
         mNotifyManager = NotificationManagerCompat.from(context);
         build = new NotificationCompat.Builder(context, String.valueOf(idNew));
         build.setContentTitle(title)
                 .setContentText(contentText)
-                .setSmallIcon(R.drawable.ic_download_on);
+                .setSmallIcon(R.drawable.ic_convert);
         id = idNew;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "conversion_channel";
+            CharSequence channelName = "Mp3 Conversion Check Notification";
+            notificationChannel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_LOW);
+            manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (manager != null) {
+                manager.createNotificationChannel(notificationChannel);
+            }
+        }
     }
 
     public static NotifyCall instance(Context context, String title, String contentText, int idNew) {
@@ -30,39 +58,65 @@ public class NotifyCall {
         }
     }
 
-    public void callWithIntent(PendingIntent intent) {
-        build.setOngoing(true);
-        build.setContentIntent(intent);
-        Notification notification = build.build();
-        notification.flags = Notification.FLAG_AUTO_CANCEL;
-        mNotifyManager.notify(id, notification);
+    public static NotifyCall getInstance(){
+        return instance;
     }
 
-    public void callWithWithProgress(long full, long now) {
-        build.setOngoing(true);
-        build.setProgress(
-                Integer.parseInt(String.valueOf(full).substring(0, 3)),
-                Integer.parseInt(String.valueOf(now).substring(0, 3)), false);
-        Notification notification = build.build();
-        notification.flags = Notification.FLAG_AUTO_CANCEL;
-        mNotifyManager.notify(id, notification);
+    /*
+    * TODO
+    * */
+
+  /*  public void callWithIntent(PendingIntent intent) {
+        if(isO){
+
+        }else {
+            build.setOngoing(true);
+            build.setContentIntent(intent);
+            Notification notification = build.build();
+            notification.flags = Notification.FLAG_AUTO_CANCEL;
+            mNotifyManager.notify(id, notification);
+        }
+    }*/
+
+    public void callWithWithProgress(int progress) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            buildO = new Notification.Builder(mContext, notificationChannel.getId())
+                    .setContentTitle("Conversion Running")
+                    .setSmallIcon(R.drawable.ic_convert)
+                    .setOngoing(true)
+                    .setProgress(100, progress, false)
+                    .build();
+            manager.notify(id, buildO);
+        } else {
+            build.setOngoing(true);
+            build.setProgress(100, progress, false);
+            Notification notification = build.build();
+            notification.flags = Notification.FLAG_AUTO_CANCEL;
+            mNotifyManager.notify(id, notification);
+        }
     }
 
 
     public void cancelById(int id) {
-        Notification notification = build.build();
-        notification.flags = Notification.FLAG_AUTO_CANCEL;
-        mNotifyManager.notify(id, build.build());
-        mNotifyManager.cancel(id);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Notification notification = buildO;
+            notification.flags = Notification.FLAG_AUTO_CANCEL;
+            mNotifyManager.notify(id, buildO);
+            manager.cancel(id);
+        }else{
+            Notification notification = build.build();
+            notification.flags = Notification.FLAG_AUTO_CANCEL;
+            mNotifyManager.notify(id, build.build());
+            mNotifyManager.cancel(id);
+        }
     }
 
-    public void cancelAll() {
+   /* public void cancelAll() {
         Notification notification = build.build();
         notification.flags = Notification.FLAG_AUTO_CANCEL;
         mNotifyManager.notify(id, build.build());
         // IDK why `cancelAll()` not working when FLAG_NO_CLEAR is set.
         mNotifyManager.cancelAll();
-    }
+    }*/
 
 }
-*/

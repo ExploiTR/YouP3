@@ -27,7 +27,7 @@ public class DownloadHistoryManager {
         return new RealmController();
     }
 
-    public void push(int id, String path, String name, String sizeWithUnit, boolean complete, int progress) {
+    public void push(int id, String path, String name, String sizeWithUnit, boolean complete, int progress , String ytUrl) {
 
         VideoInfo info = new VideoInfo();
 
@@ -38,6 +38,7 @@ public class DownloadHistoryManager {
         info.setSize(sizeWithUnit);
         info.setCompleted(complete);
         info.setProgress(progress);
+        info.setYtUrl(ytUrl);
 
         realm.beginTransaction();
         realm.copyToRealmOrUpdate(info);

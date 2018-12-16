@@ -37,6 +37,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <TextView
+        android:id="@+id/file_downloads_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <TextView
         android:id="@+id/file_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,6 +65,7 @@
             android:id="@+id/start_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_marginEnd="2.5dp"
             android:layout_weight="1"
             android:minHeight="60dp"
@@ -67,15 +75,27 @@
             android:id="@+id/open_file"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_marginEnd="2.5dp"
             android:layout_weight="1"
             android:minHeight="60dp"
             android:src="@drawable/ic_open" />
 
         <ImageButton
+            android:id="@+id/re_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginEnd="2.5dp"
+            android:layout_weight="1"
+            android:minHeight="60dp"
+            android:src="@drawable/ic_re_download" />
+
+        <ImageButton
             android:id="@+id/cancel_download"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_marginEnd="2.5dp"
             android:layout_weight="1"
             android:minHeight="60dp"

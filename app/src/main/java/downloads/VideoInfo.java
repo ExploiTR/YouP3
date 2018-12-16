@@ -15,6 +15,7 @@ public class VideoInfo extends RealmObject {
     private String name;
     private String size;
     private String url;
+    private String ytUrl;
     private boolean completed;
     private int progress;
 
@@ -72,5 +73,13 @@ public class VideoInfo extends RealmObject {
 
     public void setProgress(int progress) {
         this.progress = progress;
+    }
+
+    public String getYtUrl() {
+        return ytUrl;
+    }
+
+    public void setYtUrl(String ytUrl) {
+        this.ytUrl = ytUrl;
     }
 }

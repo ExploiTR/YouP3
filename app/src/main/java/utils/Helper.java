@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.media.AudioFormat;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -19,7 +20,6 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 
 import com.koushikdutta.ion.Ion;
-
 import org.apache.commons.io.FilenameUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +37,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.regex.Pattern;
 
+import downloader.utils.Queue;
+import downloads.RealmController;
+import downloads.VideoInfo;
+
 /*
  * Created by exploitr on 01-10-2017.
  */
@@ -45,8 +49,12 @@ public class Helper {
 
     private static final String API_KEY = "AIzaSyCcCIKRDOsePYwE88FZC5KNXG8KUpDr3oM"; //certificate restricted key
 
-    public static void verb(@NonNull String what) {
-        Log.v("YouP3", what.toString());
+    public static void verb(@NonNull Object what) {
+        Log.v("-_-", what.toString());
+    }
+
+    public static void verb(String tag,@NonNull Object what) {
+        Log.v(tag, what.toString());
     }
 
     public static int getFileSizeFromUrl(final String url) {
@@ -83,21 +91,14 @@ public class Helper {
         }
     }
 
-
     public static String getTitle(Context context, String url) {
-        verb(url);
-        String finalUrl = getQueryString(url);
-        verb(finalUrl);
-        String jsonContent = getJsonContent(context, finalUrl);
-        verb(jsonContent);
+        String jsonContent = getJsonContent(context, getQueryString(url));
         try {
             JSONObject jsonObject = new JSONObject(jsonContent);
             JSONArray jsonArray = jsonObject.getJSONArray("items");
             JSONObject object = jsonArray.getJSONObject(0);
             JSONObject snippet = object.getJSONObject("snippet");
-            String title = snippet.getString("title");
-            verb(title);
-            return Helper.getFilenameFromString(title);
+            return Helper.getFilenameFromString(snippet.getString("title"));
         } catch (JSONException e) {
             e.printStackTrace();
             return "error";
@@ -115,22 +116,11 @@ public class Helper {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-   /* @unused
-   public static boolean isConnectedFast(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info;
-        if (connectivityManager != null) {
-            info = connectivityManager.getActiveNetworkInfo();
-        } else {
-            return false;
-        }
-        return (info != null && info.isConnected() && isConnectionFast(info.getType(), info.getSubtype()));
-    }*/
-
     /**
      * @param uri Pass file uri
      * @return typeString
      */
+    @SuppressWarnings("unused")
     public static String getMimeType(String uri) {
         String type = null;
         String extension = FilenameUtils.getExtension(uri);
@@ -139,12 +129,6 @@ public class Helper {
         }
         return type;
     }
-
-    /*public float convertPixelsToDp(float px, Context context) {
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        return px / ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-    }*/
 
     public static String getMail(Context mContext) {
         Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
@@ -156,6 +140,18 @@ public class Helper {
         }
         return "empty@nomail.com";
     }
+
+   /* @unused
+   public static boolean isConnectedFast(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info;
+        if (connectivityManager != null) {
+            info = connectivityManager.getActiveNetworkInfo();
+        } else {
+            return false;
+        }
+        return (info != null && info.isConnected() && isConnectionFast(info.getType(), info.getSubtype()));
+    }*/
 
     public static void clearCookies(WebView mainView, boolean clearWebViewAlso) {
         try {
@@ -191,6 +187,12 @@ public class Helper {
         }
     }
 
+    /*public float convertPixelsToDp(float px, Context context) {
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        return px / ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+    }*/
+
     public static void clearCache(WebView mainView) {
         WebStorage.getInstance().deleteAllData();
         if (mainView != null) {
@@ -216,6 +218,22 @@ public class Helper {
                 .replace("\"", "")
                 .replace(",", ""); //REGEX;
         return paw.replace("null", "");
+    }
+
+    private static String getQueryString(String videoUrl) {
+        // "https://www.youtube.com/oembed?url=" + url + "&format=json"; another lengthy inefficient way
+        String[] cow = videoUrl.split("v="); //https://www.youtube.com/watch? | SnnJg0jqr8A
+        if (videoUrl.contains("&")) {  //https://www.youtube.com/watch?v= | SnnJg0jqr8A&app=desktop
+            cow = cow[1].split("&"); //SnnJg0jqr8A | app=desktop
+            videoUrl = cow[0];//SnnJg0jqr8A
+            verb(videoUrl);
+        } else {
+            videoUrl = cow[1];//SnnJg0jqr8A
+            verb(videoUrl);
+        }
+        return "https://www.googleapis.com/youtube/v3/videos?id=" + videoUrl + "&key=" +
+                API_KEY +
+                "&part=snippet";
     }
 
     /* @unused
@@ -263,31 +281,6 @@ public class Helper {
         }
     }*/
 
-    private static String getQueryString(String videoUrl) {
-        // "https://www.youtube.com/oembed?url=" + url + "&format=json";
-        String[] cow = videoUrl.split("v="); //https://www.youtube.com/watch? | SnnJg0jqr8A
-        if (videoUrl.contains("&")) {  //https://www.youtube.com/watch?v= | SnnJg0jqr8A&app=desktop
-            cow = cow[1].split("&"); //SnnJg0jqr8A | app=desktop
-            videoUrl = cow[0];//SnnJg0jqr8A
-            verb(videoUrl);
-        } else {
-            videoUrl = cow[1];//SnnJg0jqr8A
-            verb(videoUrl);
-        }
-        return "https://www.googleapis.com/youtube/v3/videos?id=" + videoUrl + "&key=" +
-                API_KEY +
-                "&part=snippet";
-    }
-
-    public static String getFormattedVideoItemString(int p, int kbps, int fps, String ext) {
-        return (p == -1 ? "(Audio) " : "(Video) " + p + "P ") +
-                (kbps == -1 ? "(Dash) " : " ") +
-                fps +
-                "fps " +
-                "Ext : " +
-                ext;
-    }
-
     private static String getJsonContent(Context context, String finalUrl) {
         try {
             String packageName = context.getPackageName();
@@ -330,5 +323,14 @@ public class Helper {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static boolean isDownloadInActive() {
+        boolean ended = true;
+        for (VideoInfo info : new RealmController().getVideoInfos()) {
+            ended = info.isCompleted();
+            if (!ended) break;
+        }
+        return Queue.getInstance().getTotalQueues() == 0 && ended;
     }
 }

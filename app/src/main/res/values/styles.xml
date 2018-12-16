@@ -3,9 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#e62117</item>
-        <item name="colorPrimaryDark">#e62117</item>
-        <item name="colorAccent">#435cf9</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="colorPrimary">@color/themeDef_primary</item>
+        <item name="colorPrimaryDark">@color/themeDef_dark</item>
+        <item name="colorAccent">@color/themeDef_accent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -18,15 +19,56 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.DownloadsActivity">
-        <item name="colorPrimary">#283593</item>
-        <item name="colorPrimaryDark">#283593</item>
-        <item name="colorAccent">#5f5fc4</item>
+        <item name="colorPrimary">@color/themeDef_DownloadsActivity_primary</item>
+        <item name="colorPrimaryDark">@color/themeDef_DownloadsActivity_dark</item>
+        <item name="colorAccent">@color/themeDef_DownloadsActivity_accent</item>
+    </style>
+
+    <style name="AppTheme.SettingsActivity">
+        <item name="colorPrimary">@color/themeDef_SettingsActivity_primary</item>
+        <item name="colorPrimaryDark">@color/themeDef_SettingsActivity_dark</item>
+        <item name="colorAccent">@color/themeDef_SettingsActivity_accent</item>
+    </style>
+
+    <style name="AppTheme.AboutActivity">
+        <item name="colorPrimary">@color/themeDef_AboutActivity_primary</item>
+        <item name="colorPrimaryDark">@color/themeDef_AboutActivity_dark</item>
+        <item name="colorAccent">@color/themeDef_AboutActivity_accent</item>
     </style>
 
     <style name="AppTheme.BookmarkActivity">
-        <item name="colorPrimary">#263238</item>
-        <item name="colorPrimaryDark">#263238</item>
-        <item name="colorAccent">#5f5fc4</item>
+        <item name="colorPrimary">@color/themeDef_BookmarkActivity_primary</item>
+        <item name="colorPrimaryDark">@color/themeDef_BookmarkActivity_dark</item>
+        <item name="colorAccent">@color/themeDef_BookmarkActivity_accent</item>
     </style>
+
+    <style name="AppTheme.MediaPlayer" parent="AppTheme.NoActionBar" />
+
+    <style name="kano" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/font</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:foreground">@drawable/rounded_dialogue</item>
+    </style>
+
+    <!-- set the rounded drawable as background to your bottom sheet -->
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_dialogue</item>
+        <item name="colorPrimaryDark">@color/themeDef_dark</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
 
 </resources>

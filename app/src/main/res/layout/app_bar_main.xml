@@ -20,14 +20,8 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
-        </android.support.v7.widget.Toolbar>
 
-        <android.support.v7.widget.SearchView
-            android:id="@+id/search_bar_main"
-            android:layout_width="match_parent"
-            android:background="#d80a00"
-            android:layout_gravity="end"
-            android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -44,10 +38,10 @@
             android:id="@+id/activity_main_rfab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginBottom="15dp"
+            android:layout_alignParentBottom="true"
             android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
             android:padding="8dp"
             rfab:rfab_color_normal="#37474f"
             rfab:rfab_color_pressed="#263238"
@@ -57,9 +51,6 @@
             rfab:rfab_shadow_dy="5dp"
             rfab:rfab_shadow_radius="7dp"
             rfab:rfab_size="normal" />
-
-
+        
     </com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>

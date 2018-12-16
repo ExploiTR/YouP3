@@ -33,8 +33,10 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
         this.mData = data;
     }
 
-    public void notifyDataSetChangedCustom() {
-        notifyDataSetChanged();
+    public void notifyDataSetChangedCustom(List<String> newdata) {
+        mData.clear();
+        mData.addAll(newdata);
+        this.notifyDataSetChanged();
     }
 
     @NonNull
@@ -52,6 +54,7 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
         holder.nameTextView.setText(x[1]);
         holder.pathTextView.setText(x[2]);
         holder.sizeTextView.setText(x[3]);
+        holder.urlTextView.setText(x[6]);
 
         holder.itemView.post(new Runnable() {
             @Override
@@ -62,12 +65,14 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
             }
         });
 
-        if (new RealmController().getVideoInfo(Integer.parseInt(holder.idTextView.getText().toString())).isCompleted()) {
-            holder.openButton.setVisibility(View.VISIBLE);
-            holder.progressBar.setVisibility(View.GONE);
-        } else {
-            holder.openButton.setVisibility(View.GONE);
-            holder.progressBar.setVisibility(View.VISIBLE);
+        if (new RealmController().getVideoInfo(Integer.parseInt(holder.idTextView.getText().toString())) != null) {
+            if (new RealmController().getVideoInfo(Integer.parseInt(holder.idTextView.getText().toString())).isCompleted()) {
+                holder.openButton.setVisibility(View.VISIBLE);
+                holder.progressBar.setVisibility(View.GONE);
+            } else {
+                holder.openButton.setVisibility(View.GONE);
+                holder.progressBar.setVisibility(View.VISIBLE);
+            }
         }
 
         if (PRDownloader.getStatus(Integer.parseInt(x[0])) == Status.PAUSED) {
@@ -94,11 +99,13 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
     }
 
     public interface ItemClickListener {
-        void onOpenClick(View view, int id, String path);
+        void onOpenClick(int id, int position,String path);
+
+        void onReDownloadClick(int id, String ytUrl);
 
         void onStartPauseClick(View view, int id, String name);
 
-        void onCancelClick(View view, int id, String name, String path);
+        void onCancelClick(int id, int position, String name, String path);
     }
 
     public interface ItemLongClickListener {
@@ -106,12 +113,14 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
 
         void onStartPauseClick();
 
+        void onReDownloadClick();
+
         void onCancelClick();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        TextView idTextView, nameTextView, pathTextView, sizeTextView;
-        ImageButton cancelButton, openButton, start_pause;
+        TextView idTextView, nameTextView, pathTextView, sizeTextView, urlTextView;
+        ImageButton cancelButton, openButton, start_pause, reDownload;
         ProgressBar progressBar;
 
         ViewHolder(View itemView) {
@@ -120,19 +129,23 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
             nameTextView = itemView.findViewById(R.id.file_downloads_name);
             pathTextView = itemView.findViewById(R.id.file_downloads_path);
             sizeTextView = itemView.findViewById(R.id.file_size);
+            urlTextView = itemView.findViewById(R.id.file_downloads_url);
+
             cancelButton = itemView.findViewById(R.id.cancel_download);
             openButton = itemView.findViewById(R.id.open_file);
             start_pause = itemView.findViewById(R.id.start_pause);
+            reDownload = itemView.findViewById(R.id.re_download);
 
             progressBar = itemView.findViewById(R.id.progress);
 
             openButton.setOnClickListener(this);
             cancelButton.setOnClickListener(this);
             start_pause.setOnClickListener(this);
+            reDownload.setOnClickListener(this);
 
             openButton.setOnLongClickListener(this);
             cancelButton.setOnLongClickListener(this);
-
+            reDownload.setOnLongClickListener(this);
 
             itemView.setOnClickListener(this);
         }
@@ -142,21 +155,25 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
             if (mClickListener != null) {
                 if (view.getId() == cancelButton.getId()) {
                     mClickListener.onCancelClick(
-                            view,
                             Integer.parseInt(idTextView.getText().toString()),
+                            this.getLayoutPosition(),
                             nameTextView.getText().toString(),
                             pathTextView.getText().toString()
                     );
                 } else if (view.getId() == openButton.getId()) {
                     mClickListener.onOpenClick(
-                            view,
                             Integer.parseInt(idTextView.getText().toString()),
+                            this.getLayoutPosition(),
                             pathTextView.getText().toString()
                     );
                 } else if (view.getId() == start_pause.getId()) {
                     mClickListener.onStartPauseClick(view,
                             Integer.parseInt(idTextView.getText().toString()),
                             nameTextView.getText().toString());
+                } else if (view.getId() == reDownload.getId()) {
+                    mClickListener.onReDownloadClick(
+                            Integer.parseInt(idTextView.getText().toString()),
+                            urlTextView.getText().toString());
                 }
             }
         }
@@ -170,9 +187,10 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
                     mLongClickListener.onOpenClick();
                 } else if (view.getId() == start_pause.getId()) {
                     mLongClickListener.onStartPauseClick();
+                } else if (view.getId() == reDownload.getId()) {
+                    mLongClickListener.onReDownloadClick();
                 }
             }
-
             return true; //done activate
         }
     }

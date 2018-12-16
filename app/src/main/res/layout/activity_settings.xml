@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:ignore="ContentDescription">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/browsing_configuration"
+            android:textColor="@color/themeDef_SettingsActivity_accent" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/fullScr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/fullscreen_mode"
+            android:textSize="15sp" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/deskMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/desktop_mode"
+            android:textSize="15sp" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/remBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/remove_toolbar_experimental"
+            android:textSize="15sp" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/defDownloader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/_def"
+            android:textColor="@color/themeDef_accent"
+            android:textSize="15sp" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:padding="5dp"
+            android:textColor="@color/themeDef_DownloadsActivity_accent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_faster"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/download_mode"
+            android:textColor="@color/themeDef_SettingsActivity_accent" />
+
+        <com.llollox.androidtoggleswitch.widgets.ToggleSwitch
+            android:id="@+id/basicAdv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="15sp"
+            app:borderRadius="8dp"
+            app:borderWidth="1px"
+            app:checkedBackgroundColor="@color/themeDef_SettingsActivity_accent"
+            app:checkedBorderColor="@color/themeDef_SettingsActivity_accent"
+            app:checkedTextColor="@android:color/white"
+            app:separatorColor="@color/themeDef_SettingsActivity_accent"
+            app:textToggleLeft="Basic Mode"
+            app:textToggleRight="Advanced Mode"
+            app:toggleHeight="50dp"
+            app:uncheckedBackgroundColor="#EEEEEE"
+            app:uncheckedBorderColor="@color/themeDef_SettingsActivity_accent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/download_folder"
+            android:textColor="@color/themeDef_SettingsActivity_accent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/destin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/sdcard"
+                android:inputType="textNoSuggestions" />
+
+            <ImageButton
+                android:id="@+id/browse_directory"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".2"
+                android:background="@drawable/file_open_back"
+                app:srcCompat="@drawable/ic_open_folder" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/wrongText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wrong_path_set_please_correct"
+            android:textColor="@android:color/holo_red_light" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/report"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/report_issue" />
+
+        <Button
+            android:id="@+id/okay"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/okay" />
+    </LinearLayout>
+
+
+</RelativeLayout>

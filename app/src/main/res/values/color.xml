@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="themeDef_primary">#ff2519</color>
+    <color name="themeDef_accent">#ff6646</color>
+    <color name="themeDef_dark">#c30000</color>
+
+    <color name="themeDef_DownloadsActivity_primary">#283593</color>
+    <color name="themeDef_DownloadsActivity_dark">#283593</color>
+    <color name="themeDef_DownloadsActivity_accent">#5f5fc4</color>
+
+    <color name="themeDef_SettingsActivity_primary">#00ba97</color>
+    <color name="themeDef_SettingsActivity_dark">#008969</color>
+    <color name="themeDef_SettingsActivity_accent">#00cca8</color>
+
+    <color name="themeDef_AboutActivity_primary">#00a1ed</color>
+    <color name="themeDef_AboutActivity_accent">#65d2ff</color>
+    <color name="themeDef_AboutActivity_dark">#0073ba</color>
+
+    <color name="themeDef_BookmarkActivity_primary">#eda500</color>
+    <color name="themeDef_BookmarkActivity_dark">#b57600</color>
+    <color name="themeDef_BookmarkActivity_accent">#ffd649</color>
+
+    <!-- anti for settingsActivity_primary -->
+    <color name="themeDef_Intro_purple_orchid">#9932CC</color>
+
+</resources>

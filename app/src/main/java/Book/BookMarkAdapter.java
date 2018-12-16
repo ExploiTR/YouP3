@@ -9,15 +9,16 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.List;
 
 import app.exploitr.nsg.youp3.R;
 
-import static utils.Helper.verb;
+
 
 /*
  * Created by exploitr on 28-09-2017.
@@ -35,6 +36,12 @@ public class BookMarkAdapter extends RecyclerView.Adapter<BookMarkAdapter.ViewHo
         this.mData = data;
     }
 
+    public void notifyDataSetChangedCustom(List<String> newdata) {
+        mData.clear();
+        mData.addAll(newdata);
+        this.notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,11 +49,9 @@ public class BookMarkAdapter extends RecyclerView.Adapter<BookMarkAdapter.ViewHo
         return new ViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String[] x = mData.get(position).split(",");
-        verb(mData.toString());
         holder.titleTextView.setText(x[1]);
         holder.urlTextView.setText(x[2]);
         holder.id = Integer.parseInt(x[0]);
@@ -56,7 +61,6 @@ public class BookMarkAdapter extends RecyclerView.Adapter<BookMarkAdapter.ViewHo
 
         holder.favicon.setImageBitmap(decodedByte);
     }
-
 
     @Override
     public int getItemCount() {
@@ -79,10 +83,9 @@ public class BookMarkAdapter extends RecyclerView.Adapter<BookMarkAdapter.ViewHo
         void onDeleteClick(int id);
     }
 
-
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView urlTextView, titleTextView;
-        ImageView favicon;
+        CircularImageView favicon;
         LinearLayout clicker;
         int id;
 
