@@ -42,8 +42,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_64_k" />
 
         <android.support.v7.widget.AppCompatButton
@@ -52,8 +52,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_96_kbps" />
 
         <Button
@@ -62,8 +62,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_128_kbps" />
 
         <Button
@@ -72,8 +72,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_160_k" />
 
         <Button
@@ -82,8 +82,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_192_kbps" />
 
     </LinearLayout>
@@ -118,12 +118,12 @@
 
         <Button
             android:id="@+id/_144p"
-            android:enabled="false"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_144_p" />
 
         <Button
@@ -132,8 +132,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_240_p" />
 
         <Button
@@ -152,8 +152,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_480_p" />
 
     </LinearLayout>
@@ -169,8 +169,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_720_p" />
 
         <Button
@@ -179,18 +179,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_1080_p" />
 
         <Button
             android:id="@+id/_1440p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
+            android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_1440_p" />
 
         <Button
@@ -199,8 +199,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin=".5dp"
-            android:enabled="false"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_2160_p_4k" />
     </LinearLayout>
 
@@ -222,8 +222,8 @@
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:layout_marginStart="5dp"
-            android:enabled="false"
             android:contentDescription="@string/music_bitrate_selection"
+            android:enabled="false"
             app:srcCompat="@drawable/ic_video" />
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -238,9 +238,9 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_144_p" />
 
         <Button
@@ -248,9 +248,9 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_240_p" />
 
         <Button
@@ -258,9 +258,9 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_320P_text" />
 
         <Button
@@ -268,9 +268,9 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_480_p" />
 
     </LinearLayout>
@@ -285,9 +285,9 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_720_p" />
 
         <Button
@@ -295,19 +295,19 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_1080_p" />
 
         <Button
             android:id="@+id/_1440p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
+            android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_1440_p" />
 
         <Button
@@ -315,9 +315,9 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:layout_margin=".5dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:text="@string/_2160_p_4k" />
     </LinearLayout>
 

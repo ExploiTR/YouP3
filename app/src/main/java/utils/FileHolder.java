@@ -2,7 +2,7 @@ package utils;
 
 import java.util.ArrayList;
 
-public class FileHolder extends ArrayList <HolderObject> {
+public class FileHolder extends ArrayList<HolderObject> {
 
     public static final int TYPE_AUDIO = 1;
     public static final int TYPE_VIDEO = 2;

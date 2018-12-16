@@ -55,11 +55,11 @@
 
         <TextView
             style="@style/TextAppearance.AppCompat.Caption"
-            android:padding="5dp"
-            android:textColor="@color/themeDef_DownloadsActivity_accent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/_faster"/>
+            android:padding="5dp"
+            android:text="@string/_faster"
+            android:textColor="@color/themeDef_DownloadsActivity_accent" />
 
         <TextView
             android:layout_width="match_parent"

@@ -18,7 +18,7 @@ import app.exploitr.nsg.youp3.R;
 
 public class NotifyCall {
 
-    @SuppressLint("StaticFieldLeak")
+    @SuppressLint("StaticFieldLeak") //TODO Fix
     private static NotifyCall instance;
     private static int id;
     private NotificationManagerCompat mNotifyManager;
@@ -58,25 +58,9 @@ public class NotifyCall {
         }
     }
 
-    public static NotifyCall getInstance(){
+    public static NotifyCall getInstance() {
         return instance;
     }
-
-    /*
-    * TODO
-    * */
-
-  /*  public void callWithIntent(PendingIntent intent) {
-        if(isO){
-
-        }else {
-            build.setOngoing(true);
-            build.setContentIntent(intent);
-            Notification notification = build.build();
-            notification.flags = Notification.FLAG_AUTO_CANCEL;
-            mNotifyManager.notify(id, notification);
-        }
-    }*/
 
     public void callWithWithProgress(int progress) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -96,14 +80,13 @@ public class NotifyCall {
         }
     }
 
-
     public void cancelById(int id) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Notification notification = buildO;
             notification.flags = Notification.FLAG_AUTO_CANCEL;
             mNotifyManager.notify(id, buildO);
             manager.cancel(id);
-        }else{
+        } else {
             Notification notification = build.build();
             notification.flags = Notification.FLAG_AUTO_CANCEL;
             mNotifyManager.notify(id, build.build());
@@ -111,12 +94,5 @@ public class NotifyCall {
         }
     }
 
-   /* public void cancelAll() {
-        Notification notification = build.build();
-        notification.flags = Notification.FLAG_AUTO_CANCEL;
-        mNotifyManager.notify(id, build.build());
-        // IDK why `cancelAll()` not working when FLAG_NO_CLEAR is set.
-        mNotifyManager.cancelAll();
-    }*/
 
 }

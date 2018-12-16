@@ -8,16 +8,12 @@ package downloads;
  * an old instance wouldn't return the updated data
  */
 
-import com.downloader.PRDownloader;
-import com.downloader.PRDownloaderConfig;
-
-import org.apache.commons.io.FilenameUtils;
-
 import io.realm.Realm;
 
 public class DownloadHistoryManager {
 
     private Realm realm;
+
 
     public DownloadHistoryManager() {
         realm = Realm.getDefaultInstance();
@@ -27,7 +23,7 @@ public class DownloadHistoryManager {
         return new RealmController();
     }
 
-    public void push(int id, String path, String name, String sizeWithUnit, boolean complete, int progress , String ytUrl) {
+    public void push(int id, String path, String name, String sizeWithUnit, boolean complete, int progress, String ytUrl) {
 
         VideoInfo info = new VideoInfo();
 

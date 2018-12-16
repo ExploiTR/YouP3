@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
     android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
     android:orientation="vertical"
     android:padding="5dp"
     tools:ignore="ContentDescription">
@@ -63,9 +63,9 @@
 
         <ImageButton
             android:id="@+id/start_pause"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_marginEnd="2.5dp"
             android:layout_weight="1"
             android:minHeight="60dp"
@@ -73,9 +73,9 @@
 
         <ImageButton
             android:id="@+id/open_file"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_marginEnd="2.5dp"
             android:layout_weight="1"
             android:minHeight="60dp"
@@ -83,9 +83,9 @@
 
         <ImageButton
             android:id="@+id/re_download"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_marginEnd="2.5dp"
             android:layout_weight="1"
             android:minHeight="60dp"
@@ -93,9 +93,9 @@
 
         <ImageButton
             android:id="@+id/cancel_download"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_marginEnd="2.5dp"
             android:layout_weight="1"
             android:minHeight="60dp"

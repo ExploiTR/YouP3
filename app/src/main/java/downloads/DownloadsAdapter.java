@@ -99,7 +99,7 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
     }
 
     public interface ItemClickListener {
-        void onOpenClick(int id, int position,String path);
+        void onOpenClick(int id, int position, String path);
 
         void onReDownloadClick(int id, String ytUrl);
 

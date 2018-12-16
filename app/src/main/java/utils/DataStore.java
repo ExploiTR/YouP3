@@ -14,10 +14,14 @@ public class DataStore {
     private static final String REMOVETOOLBAR = "reamer";
     private static final String DESKTOPMODE = "desk";
     private static final String CONV_SUPPORTED = "adrielcafe";
-    private static final String NEW_USER = "new_userid";
     private static final String DOWNLOAD_MODE = "mode_of_download";
     private static final String PATH_DOWNLOAD = "_path_download";
     private static final String USE_DEFAULT_DOWNLOADER = "_def_ok";
+
+    private static final String NEW_USER_INTRO = "_intro";
+    private static final String NEW_USER_SPLASH = "_splash";
+    private static final String NEW_USER_BOOKMARK = "_bookmark_star";
+    private static final String NEW_USER_SERVICE_STARTER = "_start_service";
 
     private static DataStore instance;
     private final SharedPreferences dataStore;
@@ -80,12 +84,42 @@ public class DataStore {
 
     /* this → just to make my eyes feel good */
 
-    public boolean isNewUser() {
-        return dataStore.getBoolean(NEW_USER, true);
+    public boolean isNewUserForIntro() {
+        return dataStore.getBoolean(NEW_USER_INTRO, true);
     }
 
-    public void setNewUserNoMore() {
-        dataStore.edit().putBoolean(NEW_USER, false).apply();
+    public void setNewUserNoMoreForINTRO() {
+        dataStore.edit().putBoolean(NEW_USER_INTRO, false).apply();
+    }
+
+    /* this → just to make my eyes feel good */
+
+    public boolean isNewUserForBOOKMARK() {
+        return dataStore.getBoolean(NEW_USER_BOOKMARK, true);
+    }
+
+    public void setNewUserNoMoreForBOOKMARK() {
+        dataStore.edit().putBoolean(NEW_USER_BOOKMARK, false).apply();
+    }
+
+    /* this → just to make my eyes feel good */
+
+    public boolean isNewUserForSPLASH() {
+        return dataStore.getBoolean(NEW_USER_SPLASH, true);
+    }
+
+    public void setNewUserNoMoreForSPLASH() {
+        dataStore.edit().putBoolean(NEW_USER_SPLASH, false).apply();
+    }
+
+    /* this → just to make my eyes feel good */
+
+    public boolean isNewUserForSERVICE_STARTER() {
+        return dataStore.getBoolean(NEW_USER_SERVICE_STARTER, true);
+    }
+
+    public void setNewUserNoMoreForSERVICE_STARTER() {
+        dataStore.edit().putBoolean(NEW_USER_SERVICE_STARTER, false).apply();
     }
 
     /* this → just to make my eyes feel good */

@@ -26,24 +26,15 @@ public class BookRealmController {
         return realm;
     }
 
-    public void clearAll() {
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(@NonNull Realm realm) {
-                realm.where(BookMark.class).findAll().deleteAllFromRealm(); //TODO impl
-            }
-        });
-    }
-
     public RealmResults<BookMark> getBookMarks() {
         return realm.where(BookMark.class).findAll();
     }
 
-    public BookMark getBookMark(int id) {
+    BookMark getBookMark(int id) {
         return realm.where(BookMark.class).equalTo("id", id).findFirst();
     }
 
-    public void deleteBookMark(int id) {
+    void deleteBookMark(int id) {
         realm.beginTransaction();
         try {
             Objects.requireNonNull(realm.where(BookMark.class).equalTo("id", id).findFirst()).deleteFromRealm();
@@ -55,10 +46,6 @@ public class BookRealmController {
         }
         realm.commitTransaction();
     }
-
-    public boolean hasBookMarks() {
-        return realm.where(BookMark.class).findAll().size() != 0;
-    } //TODO check
 
 }
 

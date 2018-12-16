@@ -8,10 +8,6 @@ package Book;
  * an old instance wouldn't return the updated data
  */
 
-import android.graphics.Bitmap;
-
-import org.apache.commons.io.FilenameUtils;
-
 import io.realm.Realm;
 
 public class BookMarkManager {

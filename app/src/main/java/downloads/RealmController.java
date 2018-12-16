@@ -26,15 +26,6 @@ public class RealmController {
         return realm;
     }
 
-    public void clearAll() {
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(@NonNull Realm realm) {
-                realm.where(VideoInfo.class).findAll().deleteAllFromRealm(); //TODO impl
-            }
-        });
-    }
-
     public RealmResults<VideoInfo> getVideoInfos() {
         return realm.where(VideoInfo.class).findAll();
     }
@@ -43,7 +34,7 @@ public class RealmController {
         return realm.where(VideoInfo.class).equalTo("id", id).findFirst();
     }
 
-    public void deleteVideoInfo(int id) {
+    void deleteVideoInfo(int id) {
         realm.beginTransaction();
         try {
             Objects.requireNonNull(realm.where(VideoInfo.class).equalTo("id", id).findFirst()).deleteFromRealm();
@@ -57,8 +48,5 @@ public class RealmController {
         realm.commitTransaction();
     }
 
-    public boolean hasVideoInfos() {
-        return realm.where(VideoInfo.class).findAll().size() != 0;
-    } //TODO check
 
 }

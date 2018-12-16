@@ -51,6 +51,6 @@
             rfab:rfab_shadow_dy="5dp"
             rfab:rfab_shadow_radius="7dp"
             rfab:rfab_size="normal" />
-        
+
     </com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout>
 </android.support.design.widget.CoordinatorLayout>

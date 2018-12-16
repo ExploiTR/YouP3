@@ -7,7 +7,6 @@ import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
 
 import java.io.File;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,7 +50,7 @@ public class FFMpegWrapper {
     }
 
     private static int getProgressInternal() throws ParseException {
-        return (int)(((float) (getCurrentTimeMills() * 100)) / getDurationTimeMills());
+        return (int) (((float) (getCurrentTimeMills() * 100)) / getDurationTimeMills());
     }
 
     public boolean isRunning(Context mContext) {

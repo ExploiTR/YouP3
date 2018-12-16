@@ -5,24 +5,24 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:orientation="vertical"
-    android:paddingTop="96dp"
-    android:paddingBottom="96dp">
+    android:paddingTop="72dp"
+    android:paddingBottom="72dp">
 
     <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@android:color/black"
-        style="@style/TextAppearance.AppCompat.Headline"
-        android:text="@string/download_mode"/>
+        android:text="@string/download_mode"
+        android:textColor="@android:color/black" />
 
     <TextView
         style="@style/TextAppearance.AppCompat.Caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:textColor="@android:color/black"
-        android:text="@string/normal_des" />
+        android:text="@string/normal_des"
+        android:textColor="@android:color/black" />
 
     <TextView
         style="@style/TextAppearance.AppCompat.Caption"
@@ -30,16 +30,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:textColor="@android:color/black"
-        android:text="@string/adv_des" />
+        android:text="@string/adv_des"
+        android:textColor="@android:color/black" />
 
     <com.llollox.androidtoggleswitch.widgets.ToggleSwitch
         android:id="@+id/basicAdv_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_margin="16dp"
         android:textSize="15sp"
         app:borderRadius="8dp"
         app:borderWidth="1px"
@@ -52,5 +52,13 @@
         app:toggleHeight="50dp"
         app:uncheckedBackgroundColor="#EEEEEE"
         app:uncheckedBorderColor="#FFFFFF" />
+
+    <TextView
+        android:textColor="@color/themeDef_primary"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/_prob_with_bm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </agency.tango.materialintroscreen.parallax.ParallaxLinearLayout>

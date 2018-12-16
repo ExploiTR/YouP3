@@ -64,4 +64,6 @@
     <string name="_def">Forward Downloads To Android\'s Default DownloadManager</string>
     <string name="_faster">(YouP3 will be unable to monitor your downloads, but they will be a lot faster)</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="_prob_with_bm">Currently there is some problem with Basic Mode (It takes some time to convert downloaded file to MP3 , but it\'s the only mode that provides MP3 file). Sorry for this temporary inconvenience</string>
+    <string name="clear">Clear</string>
 </resources>

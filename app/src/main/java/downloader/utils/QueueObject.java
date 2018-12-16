@@ -3,9 +3,9 @@ package downloader.utils;
 @SuppressWarnings("WeakerAccess")
 public class QueueObject {
 
-    private String url,ytUrl, name, size, ext;
+    private String url, ytUrl, name, size, ext;
     private int id;
-    private boolean basic,de_fault;
+    private boolean basic, de_fault;
 
     public int getId() {
         return id;

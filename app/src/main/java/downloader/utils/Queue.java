@@ -32,7 +32,7 @@ public class Queue {
         }
     }
 
-    public int getTotalQueues(){
+    public int getTotalQueues() {
         return list.size();
     }
 

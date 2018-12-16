@@ -19,7 +19,7 @@ public class SuperToast extends View {
         super(context);
     }
 
-    public static void makeText(Context context,Object message, int duration) {
+    public static void makeText(Context context, Object message, int duration) {
         Toast toast = new Toast(context);
 
         WindowManager windowManager =

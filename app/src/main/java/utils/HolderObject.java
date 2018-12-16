@@ -1,6 +1,5 @@
 package utils;
 
-import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YtFile;
 
 public class HolderObject {

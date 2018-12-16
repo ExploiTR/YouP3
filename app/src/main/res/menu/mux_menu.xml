@@ -11,8 +11,8 @@
         app:showAsAction="always|collapseActionView" />
 
     <item
-        android:icon="@drawable/ic_bookmark"
         android:id="@+id/action_bookmark"
+        android:icon="@drawable/ic_bookmark"
         android:orderInCategory="1"
         android:title="@string/bookmark"
         app:showAsAction="always|collapseActionView" />

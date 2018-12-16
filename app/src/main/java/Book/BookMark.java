@@ -1,7 +1,5 @@
 package Book;
 
-import android.graphics.Bitmap;
-
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 

@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.media.AudioFormat;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -20,6 +19,7 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 
 import com.koushikdutta.ion.Ion;
+
 import org.apache.commons.io.FilenameUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +53,7 @@ public class Helper {
         Log.v("-_-", what.toString());
     }
 
-    public static void verb(String tag,@NonNull Object what) {
+    public static void verb(String tag, @NonNull Object what) {
         Log.v(tag, what.toString());
     }
 
