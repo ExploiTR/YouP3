@@ -33,14 +33,13 @@ Also, it's not complete yet. There might exists fatal bugs which I've not faced,
 # Screenshots
 
 ![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193341.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193435.png)
 ![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193503.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193545.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193604.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193631.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193604.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193912.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-194412.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224800.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224717.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224701.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224636.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224457.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224542.png)
 
 
 
