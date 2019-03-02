@@ -8,7 +8,7 @@ Android app for downloading audio/videos directly from Youtube.
  
  ### Download Modes :
   * Basic Mode : Downloads audio file from YouTube video only (I don't know about the properties)
-  * Advanced Mode : Can download both Video/Audio files from 144p-360p-720p-1080p to 4K,dash.etc and whatever bitrate availbale (whatever available, I've no control)
+  * Advanced Mode : Can download both Video/Audio files from 144p-360p-720p-1080p to 4K,dash.etc and whatever bitrate available
  ### BookMark
   * Bookmark a video with a snapshot and it's url
   * Tap to open, long-tap to remove
