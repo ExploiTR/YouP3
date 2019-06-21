@@ -6,9 +6,9 @@
     android:orientation="vertical"
     android:padding="10dp"
     app:behavior_hideable="true"
-    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+    app:layout_behavior="Bott">
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -29,14 +29,14 @@
             android:contentDescription="@string/music_bitrate_selection"
             app:srcCompat="@drawable/ic_music" />
 
-    </android.support.v7.widget.LinearLayoutCompat>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_64"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -46,7 +46,7 @@
             android:enabled="false"
             android:text="@string/_64_k" />
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_96"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -56,7 +56,7 @@
             android:enabled="false"
             android:text="@string/_96_kbps" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_128"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -66,7 +66,7 @@
             android:enabled="false"
             android:text="@string/_128_kbps" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_160"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -76,7 +76,7 @@
             android:enabled="false"
             android:text="@string/_160_k" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_192"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -88,7 +88,7 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -109,14 +109,14 @@
             android:contentDescription="@string/music_bitrate_selection"
             app:srcCompat="@drawable/ic_music_video" />
 
-    </android.support.v7.widget.LinearLayoutCompat>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_144p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -126,7 +126,7 @@
             android:enabled="false"
             android:text="@string/_144_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_240p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -136,7 +136,7 @@
             android:enabled="false"
             android:text="@string/_240_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_360p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -146,7 +146,7 @@
             android:enabled="false"
             android:text="@string/_320P_text" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_480p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -163,7 +163,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_720p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -173,7 +173,7 @@
             android:enabled="false"
             android:text="@string/_720_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_1080p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -183,7 +183,7 @@
             android:enabled="false"
             android:text="@string/_1080_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_1440p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -193,7 +193,7 @@
             android:enabled="false"
             android:text="@string/_1440_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_2160p"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -204,7 +204,7 @@
             android:text="@string/_2160_p_4k" />
     </LinearLayout>
 
-    <android.support.v7.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -226,14 +226,14 @@
             android:enabled="false"
             app:srcCompat="@drawable/ic_video" />
 
-    </android.support.v7.widget.LinearLayoutCompat>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_144p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -243,7 +243,7 @@
             android:enabled="false"
             android:text="@string/_144_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_240p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -253,7 +253,7 @@
             android:enabled="false"
             android:text="@string/_240_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_360p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -263,7 +263,7 @@
             android:enabled="false"
             android:text="@string/_320P_text" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_480p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -280,7 +280,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_720p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -290,7 +290,7 @@
             android:enabled="false"
             android:text="@string/_720_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_1080p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -300,7 +300,7 @@
             android:enabled="false"
             android:text="@string/_1080_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_1440p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
@@ -310,7 +310,7 @@
             android:enabled="false"
             android:text="@string/_1440_p" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/_2160p_silent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"

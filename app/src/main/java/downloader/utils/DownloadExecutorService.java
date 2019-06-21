@@ -1,5 +1,6 @@
 package downloader.utils;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -9,12 +10,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.content.LocalBroadcastManager;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.util.Objects;
 
@@ -71,7 +76,12 @@ public class DownloadExecutorService extends Service {
                     .setContentIntent(pendingIntent)
                     .setOngoing(true);
             notification = builder.build();
-            startForeground(12, notification);
+            if (ContextCompat.checkSelfPermission(getBaseContext(), Manifest.permission.FOREGROUND_SERVICE) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                startForeground(12, notification);
+            } else {
+                Toast.makeText(this, "Service Permission Denial", Toast.LENGTH_SHORT).show();
+            }
         } else {
             builder = new Notification.Builder(this)
                     .setContentTitle("Background Download Service Running")

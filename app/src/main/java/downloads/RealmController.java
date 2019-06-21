@@ -4,8 +4,6 @@ package downloads;
  * Created by exploitr on 27-09-2017.
  */
 
-import android.support.annotation.NonNull;
-
 import com.crashlytics.android.Crashlytics;
 
 import java.util.Objects;

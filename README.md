@@ -15,11 +15,11 @@ Android app for downloading audio/videos directly from Youtube.
  ### Navbar
   * One click to go to Youtube trends to Youtube Music.. whatever available
  ### Download management
-  * Faster downloads possible by Android's Default Download Manager ( To be enabled from Settings, and YouP3 won't monitor any download transfered to Android's DownloadManager)
-  * Stop-Resume-Pause Support (beta | Only on PRDownloader)
+  * Faster downloads(test cases shows uses full bandwidth) possible by [PRDownloader](https://github.com/MindorksOpenSource/PRDownloader)
+  * Stop-Resume-Pause Support (beta)
   * Background downloads (beta)
   * Realtime progress of file downloads
-  * In-App Audio and Video player.
+  * In-App Audio and Video player. (Strictly in Beta)
  ### Except Them
   * Auto-Search videos when typed on searchbar (To be enabled from settings)
   * Fullscreen mode (To be enabled from settings)
@@ -28,20 +28,19 @@ Android app for downloading audio/videos directly from Youtube.
 ### Help
 It's not hard to use it.Basic mode is just supereasy. In advanced mode, there will be some choices saying `dash`.. actually dash files are videos without audios. As sometimes higher resoliution videos are only in dash, I've thought to merge them with audio. Looking further whatever I can do. Till then don't use `dash` if you don't require.
 
-![#f03c15](https://placehold.it/15/f03c15/000000?text=+) There is currently some problem with Basic Download Mode
-
 Also, it's not complete yet. There might exists fatal bugs which I've not faced, I'll love to have an issue created by you then.
  
 # Screenshots
 
 ![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193341.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193435.png)
 ![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193503.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224800.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224717.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224701.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224636.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224457.png)
-![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-12-16-224542.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193545.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193604.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193631.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193604.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-193912.png)
+![](https://raw.githubusercontent.com/ExploiTR/YouP3/master/screenshots/device-2018-10-14-194412.png)
 
 
 

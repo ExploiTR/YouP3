@@ -23,8 +23,7 @@
         app:civ_shadow_color="@color/themeDef_BookmarkActivity_accent"
         app:civ_shadow_radius="1" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="100dp"

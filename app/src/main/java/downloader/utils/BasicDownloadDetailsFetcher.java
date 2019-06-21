@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.support.v7.app.AlertDialog;
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,7 +73,7 @@ public class BasicDownloadDetailsFetcher extends AsyncTask<String, Void, JSONObj
                 "FileName : " + title,
                 "File Size : " + sizeMb + "MB",
                 "Path : " + Environment.getExternalStorageDirectory() + "/YouP3/");
-        CharSequence[] cs = list.toArray(new CharSequence[list.size()]);
+        CharSequence[] cs = list.toArray(new CharSequence[0]);
 
         final String finalTitle = title;//copy final temp var
         final String finalSizeMb = sizeMb;//copy final temp var

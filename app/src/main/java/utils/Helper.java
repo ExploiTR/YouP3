@@ -1,22 +1,21 @@
 package utils;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.util.Log;
-import android.util.Patterns;
 import android.webkit.CookieManager;
 import android.webkit.MimeTypeMap;
 import android.webkit.ValueCallback;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
+
+import androidx.annotation.NonNull;
 
 import com.koushikdutta.ion.Ion;
 
@@ -35,7 +34,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.regex.Pattern;
 
 import downloader.utils.Queue;
 import downloads.RealmController;
@@ -130,15 +128,17 @@ public class Helper {
         return type;
     }
 
-    public static String getMail(Context mContext) {
-        Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
-        Account[] accounts = AccountManager.get(mContext).getAccounts();
-        for (Account account : accounts) {
-            if (emailPattern.matcher(account.name).matches()) {
-                return account.name;
+    @SuppressWarnings("SameParameterValue")
+    public static boolean isMyServiceRunning(Class<?> serviceClass, Context context) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (manager != null) {
+            for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+                if (serviceClass.getName().equals(service.service.getClassName())) {
+                    return true;
+                }
             }
         }
-        return "empty@nomail.com";
+        return false;
     }
 
    /* @unused
@@ -215,8 +215,12 @@ public class Helper {
         String paw = blockedString.replaceAll("[\\\\/:*?\"<>|]", "")
                 .replaceAll("[^a-zA-Z0-9.-]", " ")
                 .replaceAll("^ +| +$|( )+", "$1")
-                .replace("\"", "")
-                .replace(",", ""); //REGEX;
+                .replaceAll("\"", "")
+                .replaceAll(" ", "")
+                .replaceAll(",", "")
+                .replaceAll("([ \\-])","")
+                .trim();
+        //REGEX;
         return paw.replace("null", "");
     }
 

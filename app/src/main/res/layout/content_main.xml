@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -10,7 +10,7 @@
     tools:context="app.exploitr.nsg.youp3.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <com.comix.overwatch.HiveProgressView
+    <ProgressBar
         android:id="@+id/indicator"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -18,12 +18,6 @@
         android:layout_marginBottom="8dp"
         android:drawingCacheQuality="high"
         android:visibility="visible"
-        app:hive_animDuration="2000"
-        app:hive_color="#FFFFFF"
-        app:hive_cornerRadius="5"
-        app:hive_maxAlpha="255"
-        app:hive_rainbow="false"
-        app:hive_shrink="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -33,4 +27,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.900" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

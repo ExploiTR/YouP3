@@ -13,7 +13,6 @@ public class DataStore {
     private static final String FULLSCREEN = "full";
     private static final String REMOVETOOLBAR = "reamer";
     private static final String DESKTOPMODE = "desk";
-    private static final String CONV_SUPPORTED = "adrielcafe";
     private static final String DOWNLOAD_MODE = "mode_of_download";
     private static final String PATH_DOWNLOAD = "_path_download";
     private static final String USE_DEFAULT_DOWNLOADER = "_def_ok";
@@ -71,17 +70,6 @@ public class DataStore {
     public void setDeskModeEnabled(boolean what) {
         dataStore.edit().putBoolean(DESKTOPMODE, what).apply();
     }
-
-    /* this → just to make my eyes feel good */
-
-    public boolean isConversionSupported() {
-        return dataStore.getBoolean(CONV_SUPPORTED, false);
-    }
-
-    public void setConversionSupported(boolean what) {
-        dataStore.edit().putBoolean(CONV_SUPPORTED, what).apply();
-    }
-
     /* this → just to make my eyes feel good */
 
     public boolean isNewUserForIntro() {
@@ -145,7 +133,7 @@ public class DataStore {
     /* this → just to make my eyes feel good */
 
     public boolean shouldUseDefaultDownloader() {
-        return dataStore.getBoolean(USE_DEFAULT_DOWNLOADER, false);
+        return dataStore.getBoolean(USE_DEFAULT_DOWNLOADER, true);
     }
 
     public void setShouldUseDefaultDownloader(boolean what) {

@@ -6,20 +6,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.downloader.Error;
-import com.downloader.OnCancelListener;
 import com.downloader.OnDownloadListener;
-import com.downloader.OnPauseListener;
-import com.downloader.OnProgressListener;
-import com.downloader.OnStartOrResumeListener;
 import com.downloader.PRDownloader;
-import com.downloader.Progress;
 
 import java.io.File;
+import java.io.IOException;
 import java.security.SecureRandom;
 
 import downloads.DownloadHistoryManager;
@@ -66,8 +63,18 @@ public class AdvancedDownloader {
         Queue.getInstance().remove(DOWNLOAD_ID);
 
         title = Helper.getFilenameFromString(title);
-        finalFile = new File(DataStore.getInstance(mContext).getPathDownload() + title + "." + extension);
+        finalFile = new File(DataStore.getInstance(mContext).getPathDownload() + "/" + title + "." + extension);
         finalFileDir = new File(DataStore.getInstance(mContext).getPathDownload());
+
+        if (finalFile.exists()) {
+            finalFile.delete();
+        }
+
+        try {
+            finalFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         if (DataStore.getInstance(mContext).shouldUseDefaultDownloader()) {
             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(link));
@@ -78,6 +85,7 @@ public class AdvancedDownloader {
             request.setDestinationUri(Uri.fromFile(finalFile));
             DownloadManager manager = (DownloadManager) mContext.getSystemService(Context.DOWNLOAD_SERVICE);
             manager.enqueue(request);
+            Toast.makeText(mContext, "Download Placed (DownloadManager)", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -90,63 +98,44 @@ public class AdvancedDownloader {
             if (finalFileDir.exists() || finalFileDir.mkdir()) {
                 FINAL_ID = PRDownloader.download(link, finalFileDir.getAbsolutePath(), title + "." + extension)
                         .build()
-                        .setOnStartOrResumeListener(new OnStartOrResumeListener() {
-                            @Override
-                            public void onStartOrResume() {
-                                makeShortToast("Download Placed!");
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        LocalBroadcastManager.getInstance(mContext).sendBroadcast(new Intent(DOWNLOAD_STARTED_FAILED_UNKNOWN));
-                                    }
-                                }, 500);
+                        .setOnStartOrResumeListener(() -> {
+                            makeShortToast("Download Placed!");
+                            new Handler().postDelayed(() -> LocalBroadcastManager.getInstance(mContext).sendBroadcast(new Intent(DOWNLOAD_STARTED_FAILED_UNKNOWN)), 500);
+                        })
+                        .setOnCancelListener(() -> {
+                            makeShortToast("Download Canceled!");
+                            if (new RealmController().getVideoInfo(FINAL_ID) != null) {
+                                new DownloadHistoryManager().removeInfoById(FINAL_ID);
                             }
                         })
-                        .setOnCancelListener(new OnCancelListener() {
-                            @Override
-                            public void onCancel() {
-                                makeShortToast("Download Canceled!");
-                                if (new RealmController().getVideoInfo(FINAL_ID) != null) {
-                                    new DownloadHistoryManager().removeInfoById(FINAL_ID);
-                                }
-                            }
-                        })
-                        .setOnPauseListener(new OnPauseListener() {
-                            @Override
-                            public void onPause() {
-                                makeShortToast("Download Paused!");
-                            }
-                        })
-                        .setOnProgressListener(new OnProgressListener() {
-                            @Override
-                            public void onProgress(Progress progressZero) {
-                                if (elapsedTime > 1000) {
+                        .setOnPauseListener(() -> makeShortToast("Download Paused!"))
+                        .setOnProgressListener(progressZero -> {
+                            if (elapsedTime > 1000) {
 
-                                    long current = progressZero.currentBytes;
-                                    long total = progressZero.totalBytes;
+                                long current = progressZero.currentBytes;
+                                long total = progressZero.totalBytes;
 
-                                    int percent = (int) ((float) current / total * 100);
+                                int percent = (int) ((float) current / total * 100);
 
-                                    new DownloadHistoryManager()
-                                            .push(FINAL_ID,
-                                                    finalFile.getAbsolutePath(),
-                                                    title,
-                                                    file_size,
-                                                    false,
-                                                    percent,
-                                                    downloadObject.getYtUrl()
-                                            );
+                                new DownloadHistoryManager()
+                                        .push(FINAL_ID,
+                                                finalFile.getAbsolutePath(),
+                                                title,
+                                                file_size,
+                                                false,
+                                                percent,
+                                                downloadObject.getYtUrl()
+                                        );
 
-                                    Intent paw = new Intent(DOWNLOAD_PROGRESS_CHANGED);
-                                    paw.putExtra("progress", percent);
-                                    paw.putExtra("id", FINAL_ID);
-                                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(paw);
+                                Intent paw = new Intent(DOWNLOAD_PROGRESS_CHANGED);
+                                paw.putExtra("progress", percent);
+                                paw.putExtra("id", FINAL_ID);
+                                LocalBroadcastManager.getInstance(mContext).sendBroadcast(paw);
 
-                                    elapsedTime = 0L;
-                                    curTime = System.currentTimeMillis();
-                                } else {
-                                    elapsedTime = System.currentTimeMillis() - curTime;
-                                }
+                                elapsedTime = 0L;
+                                curTime = System.currentTimeMillis();
+                            } else {
+                                elapsedTime = System.currentTimeMillis() - curTime;
                             }
                         })
                         .start(new OnDownloadListener() {
