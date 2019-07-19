@@ -23,7 +23,7 @@ Android app for downloading audio/videos directly from Youtube.
   * Default DownloadManager backed Download Management
   * In-build 6-mode Audio Format Conveter (**New Since 1.1.0**)
  ### Except Them
-  * Auto-Search videos when typed on searchbar (To be enabled from settings) (**Obsolete*)
+  * Auto-Search videos when typed on searchbar (To be enabled from settings) (**Obsolete**)
   * Fullscreen mode (To be enabled from settings)
   * Desktop mode (To be enabled from settings)
  
