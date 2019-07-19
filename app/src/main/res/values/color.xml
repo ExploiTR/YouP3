@@ -3,6 +3,7 @@
     <color name="themeDef_primary">#ff2519</color>
     <color name="themeDef_accent">#ff6646</color>
     <color name="themeDef_dark">#c30000</color>
+    <color name="themeDef_WindowBack">#e62117</color>
 
     <color name="themeDef_DownloadsActivity_primary">#283593</color>
     <color name="themeDef_DownloadsActivity_dark">#283593</color>
@@ -19,6 +20,10 @@
     <color name="themeDef_BookmarkActivity_primary">#eda500</color>
     <color name="themeDef_BookmarkActivity_dark">#b57600</color>
     <color name="themeDef_BookmarkActivity_accent">#ffd649</color>
+
+    <color name="themeDef_ConverterActivity_primary">#9c27b0</color>
+    <color name="themeDef_ConverterActivity_dark">#6a0080</color>
+    <color name="themeDef_ConverterActivity_accent">#d05ce3</color>
 
     <!-- anti for settingsActivity_primary -->
     <color name="themeDef_Intro_purple_orchid">#9932CC</color>

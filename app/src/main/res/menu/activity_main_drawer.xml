@@ -29,6 +29,18 @@
             android:title="@string/go_downloads" />
 
         <item
+            android:id="@+id/convert_"
+            android:checkable="false"
+            android:icon="@drawable/ic_conv"
+            android:title="@string/audio_converter" />
+
+        <item
+            android:id="@+id/do_bug_report"
+            android:checkable="false"
+            android:icon="@drawable/ic_bug_"
+            android:title="@string/bug_report" />
+
+        <item
             android:id="@+id/go_me"
             android:checkable="false"
             android:icon="@drawable/go_me"
@@ -39,6 +51,7 @@
             android:checkable="false"
             android:icon="@drawable/go_exit"
             android:title="@string/go_exit" />
+
 
     </group>
 

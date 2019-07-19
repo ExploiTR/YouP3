@@ -6,6 +6,7 @@
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="colorPrimary">@color/themeDef_primary</item>
         <item name="colorPrimaryDark">@color/themeDef_dark</item>
+        <item name="android:windowBackground">@color/themeDef_WindowBack</item>
         <item name="colorAccent">@color/themeDef_accent</item>
     </style>
 
@@ -18,28 +19,34 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="AppTheme.DownloadsActivity">
+    <style name="DownloadsActivity" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/themeDef_DownloadsActivity_primary</item>
         <item name="colorPrimaryDark">@color/themeDef_DownloadsActivity_dark</item>
         <item name="colorAccent">@color/themeDef_DownloadsActivity_accent</item>
     </style>
 
-    <style name="AppTheme.SettingsActivity">
+    <style name="SettingsActivity" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/themeDef_SettingsActivity_primary</item>
         <item name="colorPrimaryDark">@color/themeDef_SettingsActivity_dark</item>
         <item name="colorAccent">@color/themeDef_SettingsActivity_accent</item>
     </style>
 
-    <style name="AppTheme.AboutActivity">
+    <style name="AboutActivity" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/themeDef_AboutActivity_primary</item>
         <item name="colorPrimaryDark">@color/themeDef_AboutActivity_dark</item>
         <item name="colorAccent">@color/themeDef_AboutActivity_accent</item>
     </style>
 
-    <style name="AppTheme.BookmarkActivity">
+    <style name="BookmarkActivity" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/themeDef_BookmarkActivity_primary</item>
         <item name="colorPrimaryDark">@color/themeDef_BookmarkActivity_dark</item>
         <item name="colorAccent">@color/themeDef_BookmarkActivity_accent</item>
+    </style>
+
+    <style name="ConverterActivity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/themeDef_ConverterActivity_primary</item>
+        <item name="colorPrimaryDark">@color/themeDef_ConverterActivity_dark</item>
+        <item name="colorAccent">@color/themeDef_ConverterActivity_accent</item>
     </style>
 
     <style name="AppTheme.MediaPlayer" parent="AppTheme.NoActionBar" />

@@ -5,14 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.downloader.PRDownloader;
-import com.downloader.Status;
 
 import java.util.List;
 
@@ -24,19 +20,19 @@ import app.exploitr.nsg.youp3.R;
 
 public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<VideoInfo> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private ItemLongClickListener mLongClickListener;
 
-    public DownloadsAdapter(Context context, List<String> data) {
+    public DownloadsAdapter(Context context, List<VideoInfo> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
 
-    public void notifyDataSetChangedCustom(List<String> newdata) {
+    public void notifyDataSetChangedCustom(List<VideoInfo> newData) {
         mData.clear();
-        mData.addAll(newdata);
+        mData.addAll(newData);
         this.notifyDataSetChanged();
     }
 
@@ -50,39 +46,20 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final String[] x = mData.get(position).split(",");
-        holder.idTextView.setText(x[0]);
-        holder.nameTextView.setText(x[1]);
-        holder.pathTextView.setText(x[2]);
-        holder.sizeTextView.setText(x[3]);
-        holder.urlTextView.setText(x[6]);
+        final VideoInfo vInfo = mData.get(position);
+        holder.nameTextView.setText(vInfo.getName());
+        holder.pathTextView.setText(vInfo.getPath());
+        holder.sizeTextView.setText(vInfo.getSize());
+        holder.urlTextView.setText(vInfo.getYtUrl());
 
-        holder.itemView.post(new Runnable() {
-            @Override
-            public void run() {
-                holder.progressBar.setMax(100);
-                holder.progressBar.setProgress(0);
-                holder.progressBar.setProgress(Integer.parseInt(x[4]));
-            }
-        });
-
-        if (new RealmController().getVideoInfo(Integer.parseInt(holder.idTextView.getText().toString())) != null) {
-            if (new RealmController().getVideoInfo(Integer.parseInt(holder.idTextView.getText().toString())).isCompleted()) {
+        if (new RealmController().getVideoInfo(vInfo.getId()) != null) {
+            if (new RealmController().getVideoInfo(vInfo.getId()).isCompleted()) {
                 holder.openButton.setVisibility(View.VISIBLE);
-                holder.progressBar.setVisibility(View.GONE);
             } else {
                 holder.openButton.setVisibility(View.GONE);
-                holder.progressBar.setVisibility(View.VISIBLE);
             }
         }
 
-        if (PRDownloader.getStatus(Integer.parseInt(x[0])) == Status.PAUSED) {
-            holder.start_pause.setImageResource(R.drawable.ic_start);
-        } else if (PRDownloader.getStatus(Integer.parseInt(x[0])) == Status.RUNNING) {
-            holder.start_pause.setImageResource(R.drawable.ic_pause);
-        } else {
-            holder.start_pause.setVisibility(View.GONE);
-        }
     }
 
 
@@ -104,15 +81,11 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
 
         void onReDownloadClick(int id, String ytUrl);
 
-        void onStartPauseClick(View view, int id, String name);
-
         void onCancelClick(int id, int position, String name, String path);
     }
 
     public interface ItemLongClickListener {
         void onOpenClick();
-
-        void onStartPauseClick();
 
         void onReDownloadClick();
 
@@ -120,13 +93,11 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        TextView idTextView, nameTextView, pathTextView, sizeTextView, urlTextView;
-        ImageButton cancelButton, openButton, start_pause, reDownload;
-        ProgressBar progressBar;
+        TextView nameTextView, pathTextView, sizeTextView, urlTextView;
+        ImageButton cancelButton, openButton, reDownload;
 
         ViewHolder(View itemView) {
             super(itemView);
-            idTextView = itemView.findViewById(R.id.file_id);
             nameTextView = itemView.findViewById(R.id.file_downloads_name);
             pathTextView = itemView.findViewById(R.id.file_downloads_path);
             sizeTextView = itemView.findViewById(R.id.file_size);
@@ -134,14 +105,10 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
 
             cancelButton = itemView.findViewById(R.id.cancel_download);
             openButton = itemView.findViewById(R.id.open_file);
-            start_pause = itemView.findViewById(R.id.start_pause);
             reDownload = itemView.findViewById(R.id.re_download);
-
-            progressBar = itemView.findViewById(R.id.progress);
 
             openButton.setOnClickListener(this);
             cancelButton.setOnClickListener(this);
-            start_pause.setOnClickListener(this);
             reDownload.setOnClickListener(this);
 
             openButton.setOnLongClickListener(this);
@@ -156,24 +123,20 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
             if (mClickListener != null) {
                 if (view.getId() == cancelButton.getId()) {
                     mClickListener.onCancelClick(
-                            Integer.parseInt(idTextView.getText().toString()),
+                            mData.get(this.getLayoutPosition()).getId(),
                             this.getLayoutPosition(),
                             nameTextView.getText().toString(),
                             pathTextView.getText().toString()
                     );
                 } else if (view.getId() == openButton.getId()) {
                     mClickListener.onOpenClick(
-                            Integer.parseInt(idTextView.getText().toString()),
+                            mData.get(this.getLayoutPosition()).getId(),
                             this.getLayoutPosition(),
                             pathTextView.getText().toString()
                     );
-                } else if (view.getId() == start_pause.getId()) {
-                    mClickListener.onStartPauseClick(view,
-                            Integer.parseInt(idTextView.getText().toString()),
-                            nameTextView.getText().toString());
                 } else if (view.getId() == reDownload.getId()) {
                     mClickListener.onReDownloadClick(
-                            Integer.parseInt(idTextView.getText().toString()),
+                            mData.get(this.getLayoutPosition()).getId(),
                             urlTextView.getText().toString());
                 }
             }
@@ -186,8 +149,6 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
                     mLongClickListener.onCancelClick();
                 } else if (view.getId() == openButton.getId()) {
                     mLongClickListener.onOpenClick();
-                } else if (view.getId() == start_pause.getId()) {
-                    mLongClickListener.onStartPauseClick();
                 } else if (view.getId() == reDownload.getId()) {
                     mLongClickListener.onReDownloadClick();
                 }

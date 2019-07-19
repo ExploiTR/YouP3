@@ -37,20 +37,17 @@ public class VideoScreen {
         new YouTubeExtractor(context) {
             @Override
             public void onExtractionComplete(SparseArray<YtFile> ytFiles, VideoMeta vMeta) {
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Bitmap bacterial = Ion.with(context).load(vMeta.getThumbUrl()).asBitmap().get();
-                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                            bacterial.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                            byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            bow = Base64.encodeToString(byteArray, Base64.DEFAULT);
-                            listener.onComplete(bow);
-                        } catch (InterruptedException | ExecutionException e) {
-                            e.printStackTrace();
-                            listener.onComplete(bow);
-                        }
+                AsyncTask.execute(() -> {
+                    try {
+                        Bitmap bacterial = Ion.with(context).load(vMeta.getThumbUrl()).asBitmap().get();
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        bacterial.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        bow = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                        listener.onComplete(bow);
+                    } catch (InterruptedException | ExecutionException e) {
+                        e.printStackTrace();
+                        listener.onComplete(bow);
                     }
                 });
             }

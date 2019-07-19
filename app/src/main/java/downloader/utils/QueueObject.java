@@ -1,11 +1,10 @@
 package downloader.utils;
 
-@SuppressWarnings("WeakerAccess")
+
 public class QueueObject {
 
-    private String url, ytUrl, name, size, ext;
+    private String url, ytUrl, name, ext;
     private int id;
-    private boolean basic, de_fault;
 
     public int getId() {
         return id;
@@ -31,23 +30,7 @@ public class QueueObject {
         this.name = name;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public boolean isBasic() {
-        return basic;
-    }
-
-    public void setBasic(boolean basic) { //!basic = advanced
-        this.basic = basic;
-    }
-
-    public String getExt() {
+    String getExt() {
         return ext;
     }
 
@@ -55,19 +38,11 @@ public class QueueObject {
         this.ext = ext;
     }
 
-    public String getYtUrl() {
+    String getYtUrl() {
         return ytUrl;
     }
 
     public void setYtUrl(String ytUrl) {
         this.ytUrl = ytUrl;
-    }
-
-    public boolean isDe_fault() {
-        return de_fault;
-    }
-
-    public void setDe_fault(boolean de_fault) {
-        this.de_fault = de_fault;
     }
 }

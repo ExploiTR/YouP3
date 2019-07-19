@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AudioConverter">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/input_file"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/themeDef_ConverterActivity_primary"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <LinearLayout
+        android:id="@+id/sel_l"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <EditText
+            android:id="@+id/inputAddr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/select_audio_file"
+            android:inputType="textNoSuggestions"
+            tools:ignore="Autofill" />
+
+        <ImageButton
+            android:id="@+id/inputAddrEditor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:background="@null"
+            android:contentDescription="@string/edit_file_audio"
+            app:srcCompat="@drawable/ic_edit" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/output_file_format"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/themeDef_ConverterActivity_primary"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/sel_l" />
+
+    <RadioGroup
+        android:id="@+id/r_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <RadioButton
+            android:id="@+id/mp3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/mp3" />
+
+        <RadioButton
+            android:id="@+id/m4a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/m4a" />
+
+        <RadioButton
+            android:id="@+id/aac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/aac" />
+
+        <RadioButton
+            android:id="@+id/wma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/wma" />
+
+        <RadioButton
+            android:id="@+id/wav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/wav" />
+
+        <RadioButton
+            android:id="@+id/flac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/flac" />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/udr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/output_file_directory"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/themeDef_ConverterActivity_primary"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/r_group" />
+
+    <LinearLayout
+        android:id="@+id/sel_z"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/udr">
+
+        <EditText
+            android:id="@+id/outputAddr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/select_audio_file"
+            android:inputType="textNoSuggestions"
+            tools:ignore="Autofill" />
+
+        <ImageButton
+            android:id="@+id/outputAddrEditor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:background="@null"
+            android:contentDescription="@string/edit_file_audio"
+            app:srcCompat="@drawable/ic_edit" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/conv_go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:tint="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sel_z"
+        app:srcCompat="@drawable/ic_conv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

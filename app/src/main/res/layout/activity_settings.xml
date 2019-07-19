@@ -44,23 +44,6 @@
             android:text="@string/remove_toolbar_experimental"
             android:textSize="15sp" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/defDownloader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="@string/_def"
-            android:textColor="@color/themeDef_accent"
-            android:textSize="15sp" />
-
-        <TextView
-            style="@style/TextAppearance.AppCompat.Caption"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="@string/_faster"
-            android:textColor="@color/themeDef_DownloadsActivity_accent" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

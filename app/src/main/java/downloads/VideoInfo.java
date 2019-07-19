@@ -17,7 +17,6 @@ public class VideoInfo extends RealmObject {
     private String url;
     private String ytUrl;
     private boolean completed;
-    private int progress;
 
     public int getId() {
         return id;
@@ -65,14 +64,6 @@ public class VideoInfo extends RealmObject {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
-    }
-
-    public int getProgress() {
-        return progress;
-    }
-
-    public void setProgress(int progress) {
-        this.progress = progress;
     }
 
     public String getYtUrl() {

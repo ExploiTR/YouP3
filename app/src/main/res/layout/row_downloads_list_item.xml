@@ -1,108 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
+    app:cardCornerRadius="10dp"
     android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp"
-    android:orientation="vertical"
-    android:padding="5dp"
-    tools:ignore="ContentDescription">
-
-    <!-- putting paddingBottom will increment to 5+5 -->
-    <!-- link,path,name,progress -->
-    <!-- No require to show user, just for recognizing rows/ids-->
-
-    <TextView
-        android:id="@+id/file_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/_1000294"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/file_downloads_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sample_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000" />
-
-    <TextView
-        android:id="@+id/file_downloads_path"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sample_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:id="@+id/file_downloads_url"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sample_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:id="@+id/file_size"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/_5_mb"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-    <ProgressBar
-        android:id="@+id/progress"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    android:layout_marginRight="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:padding="5dp"
+        tools:ignore="ContentDescription">
 
-        <ImageButton
-            android:id="@+id/start_pause"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
+        <!-- putting paddingBottom will increment to 5+5 -->
+        <!-- link,path,name,progress -->
+        <!-- No require to show user, just for recognizing rows/ids-->
+
+        <TextView
+            android:id="@+id/file_downloads_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2.5dp"
-            android:layout_weight="1"
-            android:minHeight="60dp"
-            app:srcCompat="@drawable/ic_start" />
+            android:text="@string/sample_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000000" />
 
-        <ImageButton
-            android:id="@+id/open_file"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/file_downloads_path"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2.5dp"
-            android:layout_weight="1"
-            android:minHeight="60dp"
-            app:srcCompat="@drawable/ic_open" />
+            android:text="@string/sample_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-        <ImageButton
-            android:id="@+id/re_download"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/file_downloads_url"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2.5dp"
-            android:layout_weight="1"
-            android:minHeight="60dp"
-            app:srcCompat="@drawable/ic_re_download" />
+            android:text="@string/sample_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-        <ImageButton
-            android:id="@+id/cancel_download"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/file_size"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2.5dp"
-            android:layout_weight="1"
-            android:minHeight="60dp"
-            app:srcCompat="@drawable/ic_delete" />
+            android:text="@string/_5_mb"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/open_file"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2.5dp"
+                android:layout_weight="1"
+                android:minHeight="60dp"
+                app:srcCompat="@drawable/ic_open" />
+
+            <ImageButton
+                android:id="@+id/re_download"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2.5dp"
+                android:layout_weight="1"
+                android:minHeight="60dp"
+                app:srcCompat="@drawable/ic_re_download" />
+
+            <ImageButton
+                android:id="@+id/cancel_download"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2.5dp"
+                android:layout_weight="1"
+                android:minHeight="60dp"
+                app:srcCompat="@drawable/ic_delete" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

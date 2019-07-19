@@ -11,7 +11,6 @@ import android.os.Build;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.MimeTypeMap;
-import android.webkit.ValueCallback;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 
@@ -24,16 +23,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import downloader.utils.Queue;
 import downloads.RealmController;
@@ -55,38 +48,14 @@ public class Helper {
         Log.v(tag, what.toString());
     }
 
-    public static int getFileSizeFromUrl(final String url) {
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        Callable<Integer> callable = new Callable<Integer>() {
-            @Override
-            public Integer call() {
-                HttpURLConnection connection;
-                long contentLength = (long) Math.pow(10, 6);
-                try {
-                    connection = (HttpURLConnection) (new URL(url)).openConnection();
-                    if (connection != null) {
-                        connection.connect();
-                    }
-
-                    if (connection != null) {
-                        contentLength = Long.parseLong(connection.getHeaderField("Content-Length"));
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    e.getSuppressed();
-                }
-
-                return (int) (contentLength / Math.pow(10, 6));
-            }
-        };
-        Future<Integer> future = executor.submit(callable);
-        try {
-            return future.get();
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getSuppressed();
-            return 0;
-        }
+    /*
+     * Expecting byte-returns
+     * So, for mb, 2 -> 1024/1024 -> kb/mb
+     * */
+    public static double fileLen(File path, int multiplier) {
+        verb(path.length());
+        verb(Math.pow(1024, multiplier));
+        return path.length() / Math.pow(1024, multiplier);
     }
 
     public static String getTitle(Context context, String url) {
@@ -118,6 +87,7 @@ public class Helper {
      * @param uri Pass file uri
      * @return typeString
      */
+
     @SuppressWarnings("unused")
     public static String getMimeType(String uri) {
         String type = null;
@@ -128,7 +98,7 @@ public class Helper {
         return type;
     }
 
-    @SuppressWarnings("SameParameterValue")
+
     public static boolean isMyServiceRunning(Class<?> serviceClass, Context context) {
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         if (manager != null) {
@@ -141,28 +111,13 @@ public class Helper {
         return false;
     }
 
-   /* @unused
-   public static boolean isConnectedFast(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info;
-        if (connectivityManager != null) {
-            info = connectivityManager.getActiveNetworkInfo();
-        } else {
-            return false;
-        }
-        return (info != null && info.isConnected() && isConnectionFast(info.getType(), info.getSubtype()));
-    }*/
-
     public static void clearCookies(WebView mainView, boolean clearWebViewAlso) {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                CookieManager.getInstance().removeAllCookies(new ValueCallback<Boolean>() {
-                    @SuppressLint("NewApi") // Oho useless lint, I've already did it
-                    @Override
-                    public void onReceiveValue(Boolean value) {
-                        if (value) {
-                            CookieManager.getInstance().flush();
-                        }
+                // Oho useless lint, I've already did it
+                CookieManager.getInstance().removeAllCookies(value -> {
+                    if (value) {
+                        CookieManager.getInstance().flush();
                     }
                 });
             } else {
@@ -187,12 +142,6 @@ public class Helper {
         }
     }
 
-    /*public float convertPixelsToDp(float px, Context context) {
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        return px / ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-    }*/
-
     public static void clearCache(WebView mainView) {
         WebStorage.getInstance().deleteAllData();
         if (mainView != null) {
@@ -212,16 +161,16 @@ public class Helper {
      * @return fresh-And-Sweet String
      */
     public static String getFilenameFromString(String blockedString) {
-        String paw = blockedString.replaceAll("[\\\\/:*?\"<>|]", "")
-                .replaceAll("[^a-zA-Z0-9.-]", " ")
-                .replaceAll("^ +| +$|( )+", "$1")
-                .replaceAll("\"", "")
-                .replaceAll(" ", "")
+        String paw = blockedString.replaceAll("[\\\\/:*?\"<>|-]", " ")
                 .replaceAll(",", "")
-                .replaceAll("([ \\-])","")
-                .trim();
-        //REGEX;
+                .trim()
+                .replaceAll(" +", " ");
         return paw.replace("null", "");
+    }
+
+
+    public static boolean fileNameReady(String toString) {
+        return !(toString.matches("[\\\\/:*?\"<>|]") || toString.contains("\0") || toString.contains("."));
     }
 
     private static String getQueryString(String videoUrl) {
@@ -239,51 +188,6 @@ public class Helper {
                 API_KEY +
                 "&part=snippet";
     }
-
-    /* @unused
-    private static boolean isConnectionFast(int type, int subType) {
-        if (type == ConnectivityManager.TYPE_WIFI) {
-            return true;
-        } else if (type == ConnectivityManager.TYPE_MOBILE) {
-            switch (subType) {
-                case TelephonyManager.NETWORK_TYPE_1xRTT:
-                    return false;
-                case TelephonyManager.NETWORK_TYPE_CDMA:
-                    return false;
-                case TelephonyManager.NETWORK_TYPE_EDGE:
-                    return false;
-                case TelephonyManager.NETWORK_TYPE_EVDO_0:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_EVDO_A:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_GPRS:
-                    return false;
-                case TelephonyManager.NETWORK_TYPE_HSDPA:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_HSPA:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_HSUPA:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_UMTS:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_EHRPD:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_EVDO_B:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_HSPAP:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_IDEN:
-                    return false;
-                case TelephonyManager.NETWORK_TYPE_LTE:
-                    return true;
-                case TelephonyManager.NETWORK_TYPE_UNKNOWN:
-                default:
-                    return false;
-            }
-        } else {
-            return false;
-        }
-    }*/
 
     private static String getJsonContent(Context context, String finalUrl) {
         try {
