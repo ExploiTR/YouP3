@@ -15,13 +15,15 @@ Android app for downloading audio/videos directly from Youtube.
  ### Navbar
   * One click to go to Youtube trends to Youtube Music.. whatever available
  ### Download management
-  * Faster downloads(test cases shows uses full bandwidth) possible by [PRDownloader](https://github.com/MindorksOpenSource/PRDownloader)
-  * Stop-Resume-Pause Support (beta)
+  * Faster downloads(test cases shows uses full bandwidth) possible by [PRDownloader](https://github.com/MindorksOpenSource/PRDownloader) (**Obsolete since 1.0.4**)
+  * Stop-Resume-Pause Support (beta) (**Obsolete since 1.0.4**)
   * Background downloads (beta)
-  * Realtime progress of file downloads
+  * Realtime progress of file downloads (**Obsolete since 1.0.4**)
   * In-App Audio and Video player. (Strictly in Beta)
+  * Default DownloadManager backed Download Management
+  * In-build 6-mode Audio Format Conveter (**New Since 1.1.0**)
  ### Except Them
-  * Auto-Search videos when typed on searchbar (To be enabled from settings)
+  * Auto-Search videos when typed on searchbar (To be enabled from settings) (**Obsolete*)
   * Fullscreen mode (To be enabled from settings)
   * Desktop mode (To be enabled from settings)
  
