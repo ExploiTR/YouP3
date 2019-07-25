@@ -24,5 +24,10 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -ignorewarnings
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }
 
 
