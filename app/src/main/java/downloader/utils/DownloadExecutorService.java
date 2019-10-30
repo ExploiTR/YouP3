@@ -15,10 +15,9 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationManagerCompat;
 
-import app.exploitr.nsg.youp3.DownloadsActivity;
-import app.exploitr.nsg.youp3.MainActivity;
+import app.exploitr.nsg.youp3.ui_access.DownloadsActivity;
+import app.exploitr.nsg.youp3.ui_access.MainActivity;
 import app.exploitr.nsg.youp3.R;
-import io.realm.Realm;
 import utils.Helper;
 
 public class DownloadExecutorService extends Service {

@@ -23,7 +23,7 @@ public class DownloadHistoryManager {
         return new RealmController();
     }
 
-    public void push(int id, String path, String name, String sizeWithUnit, boolean complete, String ytUrl) {
+    public void push(int id, String path, String name, double sizeMb, boolean complete, String ytUrl) {
 
         VideoInfo info = new VideoInfo();
 
@@ -31,7 +31,7 @@ public class DownloadHistoryManager {
         /*IDK but link would be the same*/
         info.setPath(path);
         info.setName(name);
-        info.setSize(sizeWithUnit);
+        info.setSize(sizeMb);
         info.setCompleted(complete);
         info.setYtUrl(ytUrl);
 

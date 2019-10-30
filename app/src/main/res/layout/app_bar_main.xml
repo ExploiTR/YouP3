@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.exploitr.nsg.youp3.MainActivity"
+    tools:context="app.exploitr.nsg.youp3.ui_access.MainActivity"
     tools:ignore="RtlSymmetry">
 
     <com.google.android.material.appbar.AppBarLayout

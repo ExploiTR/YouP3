@@ -15,7 +15,6 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.File;
 import java.util.Locale;
 
-import app.exploitr.nsg.youp3.DownloadsActivity;
 import downloads.DownloadHistoryManager;
 import downloads.RealmController;
 import io.reactivex.Observer;
@@ -49,7 +48,7 @@ class Downloader {
                                 .push(FINAL_ID,
                                         "Downloading Now.",
                                         object.getName(),
-                                        "0 MB",
+                                        0,
                                         false,
                                         object.getYtUrl()
                                 );
@@ -64,7 +63,7 @@ class Downloader {
                                 .push(FINAL_ID,
                                         content.getAbsolutePath(),
                                         object.getName(),
-                                        String.format(Locale.US, "%.2f", Helper.fileLen(content, 2)) + "MB",
+                                        Helper.fileLen(content),
                                         true,
                                         object.getYtUrl()
                                 );

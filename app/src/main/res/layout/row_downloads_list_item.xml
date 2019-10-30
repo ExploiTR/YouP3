@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
-    app:cardCornerRadius="10dp"
     android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp">
+    android:layout_marginRight="5dp"
+    app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,38 +16,46 @@
         android:padding="5dp"
         tools:ignore="ContentDescription">
 
-        <!-- putting paddingBottom will increment to 5+5 -->
-        <!-- link,path,name,progress -->
-        <!-- No require to show user, just for recognizing rows/ids-->
-
-        <TextView
-            android:id="@+id/file_downloads_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sample_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#000000" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/file_downloads_path"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sample_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:fillViewport="true"
+                android:orientation="vertical"
+                tools:ignore="ContentDescription">
 
-        <TextView
-            android:id="@+id/file_downloads_url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sample_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/file_downloads_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_name"
+                    android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/file_size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/_5_mb"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/file_downloads_path"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_name" />
+
+            </LinearLayout>
+
+            <com.github.lzyzsd.circleprogress.DonutProgress
+                android:id="@+id/file_size"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="@string/_5_mb"
+                app:donut_finished_color="@color/themeDef_DownloadsActivity_accent"
+                app:donut_progress="56"
+                app:donut_text_size="12sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
