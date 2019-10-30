@@ -16,7 +16,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 
-import app.exploitr.nsg.youp3.BottomSheetFragment;
+import app.exploitr.nsg.youp3.ui_access.BottomSheetFragment;
 import app.exploitr.nsg.youp3.R;
 import at.huber.youtubeExtractor.Format;
 import at.huber.youtubeExtractor.VideoMeta;

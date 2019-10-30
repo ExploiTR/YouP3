@@ -21,8 +21,8 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 
-import app.exploitr.nsg.youp3.AudioConverter;
 import app.exploitr.nsg.youp3.R;
+import app.exploitr.nsg.youp3.ui_access.AudioConverter;
 import cafe.adriel.androidaudioconverter.AndroidAudioConverter;
 import cafe.adriel.androidaudioconverter.callback.IConvertCallback;
 import cafe.adriel.androidaudioconverter.model.AudioFormat;

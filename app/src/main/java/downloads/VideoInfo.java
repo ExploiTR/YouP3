@@ -13,7 +13,7 @@ public class VideoInfo extends RealmObject {
     private int id;
     private String path;
     private String name;
-    private String size;
+    private double size;
     private String url;
     private String ytUrl;
     private boolean completed;
@@ -42,11 +42,11 @@ public class VideoInfo extends RealmObject {
         this.name = name;
     }
 
-    public String getSize() {
+    public double getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(double size) {
         this.size = size;
     }
 

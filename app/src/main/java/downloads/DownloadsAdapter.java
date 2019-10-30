@@ -1,6 +1,7 @@
 package downloads;
 
 import android.content.Context;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.lzyzsd.circleprogress.DonutProgress;
+
+import java.text.DecimalFormat;
 import java.util.List;
 
 import app.exploitr.nsg.youp3.R;
@@ -24,9 +28,11 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private ItemLongClickListener mLongClickListener;
+    private static long SIZE_TOTAL = 1L;
 
     public DownloadsAdapter(Context context, List<VideoInfo> data) {
         this.mInflater = LayoutInflater.from(context);
+        SIZE_TOTAL = Environment.getExternalStorageDirectory().getTotalSpace() / (1024 * 1024);
         this.mData = data;
     }
 
@@ -42,15 +48,14 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
         View view = mInflater.inflate(R.layout.row_downloads_list_item, parent, false);
         return new ViewHolder(view);
     }
-
-
+    
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         final VideoInfo vInfo = mData.get(position);
-        holder.nameTextView.setText(vInfo.getName());
+        holder.nameTextView.setText(vInfo.getName().substring(0, 40) + ".....");
         holder.pathTextView.setText(vInfo.getPath());
-        holder.sizeTextView.setText(vInfo.getSize());
-        holder.urlTextView.setText(vInfo.getYtUrl());
+        holder.sizeView.setProgress(Float.parseFloat(new DecimalFormat("##.##")
+                .format((vInfo.getSize() / SIZE_TOTAL) * 100)));
 
         if (new RealmController().getVideoInfo(vInfo.getId()) != null) {
             if (new RealmController().getVideoInfo(vInfo.getId()).isCompleted()) {
@@ -61,7 +66,6 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
         }
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -93,15 +97,15 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        TextView nameTextView, pathTextView, sizeTextView, urlTextView;
+        TextView nameTextView, pathTextView;
+        DonutProgress sizeView;
         ImageButton cancelButton, openButton, reDownload;
 
         ViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.file_downloads_name);
             pathTextView = itemView.findViewById(R.id.file_downloads_path);
-            sizeTextView = itemView.findViewById(R.id.file_size);
-            urlTextView = itemView.findViewById(R.id.file_downloads_url);
+            sizeView = itemView.findViewById(R.id.file_size);
 
             cancelButton = itemView.findViewById(R.id.cancel_download);
             openButton = itemView.findViewById(R.id.open_file);
@@ -125,19 +129,19 @@ public class DownloadsAdapter extends RecyclerView.Adapter<DownloadsAdapter.View
                     mClickListener.onCancelClick(
                             mData.get(this.getLayoutPosition()).getId(),
                             this.getLayoutPosition(),
-                            nameTextView.getText().toString(),
-                            pathTextView.getText().toString()
+                            mData.get(this.getLayoutPosition()).getName(),
+                            mData.get(this.getLayoutPosition()).getPath()
                     );
                 } else if (view.getId() == openButton.getId()) {
                     mClickListener.onOpenClick(
                             mData.get(this.getLayoutPosition()).getId(),
                             this.getLayoutPosition(),
-                            pathTextView.getText().toString()
+                            mData.get(this.getLayoutPosition()).getPath()
                     );
                 } else if (view.getId() == reDownload.getId()) {
                     mClickListener.onReDownloadClick(
                             mData.get(this.getLayoutPosition()).getId(),
-                            urlTextView.getText().toString());
+                            mData.get(this.getLayoutPosition()).getYtUrl());
                 }
             }
         }

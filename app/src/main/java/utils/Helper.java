@@ -52,10 +52,8 @@ public class Helper {
      * Expecting byte-returns
      * So, for mb, 2 -> 1024/1024 -> kb/mb
      * */
-    public static double fileLen(File path, int multiplier) {
-        verb(path.length());
-        verb(Math.pow(1024, multiplier));
-        return path.length() / Math.pow(1024, multiplier);
+    public static double fileLen(File path) {
+        return path.length() / (1024*1024);
     }
 
     public static String getTitle(Context context, String url) {

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#cfd8dc"
     android:orientation="vertical"
-    tools:context="app.exploitr.nsg.youp3.DownloadsActivity">
+    tools:context="app.exploitr.nsg.youp3.ui_access.DownloadsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/downloadedItems"

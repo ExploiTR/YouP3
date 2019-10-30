@@ -22,7 +22,6 @@ repositories {
 
 android {
     signingConfigs {
-
     }
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
@@ -30,16 +29,16 @@ android {
         applicationId "app.exploitr.nsg.youp3"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 91020719
-        versionName "1.1.0"
+        versionCode 91021030
+        versionName "1.1.2"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
     }
     buildTypes {
         debug {
-            /*    minifyEnabled true
-                shrinkResources true
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro' */
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
         }
         release {
@@ -61,16 +60,16 @@ dependencies {
     implementation('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true
     }
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.koushikdutta.ion:ion:2.2.1'
+    implementation 'com.koushikdutta.ion:ion:3.0.8'
     implementation('com.github.wangjiegulu:rfab:2.0.0') {
         exclude group: 'com.android.support'
     }
 
-    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:v1.9.0'
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
     //noinspection GradleDependency
     annotationProcessor 'com.google.auto.value:auto-value:1.1'
     implementation('com.google.android.exoplayer:exoplayer:2.10.1') {
@@ -99,8 +98,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'com.github.esafirm:rxdownloader:2.0.0'
     implementation 'com.github.adrielcafe:AndroidAudioConverter:0.0.8'
-    implementation ('com.obsez.android.lib.filechooser:filechooser:1.2.0'){
+    implementation('com.obsez.android.lib.filechooser:filechooser:1.2.0') {
         exclude group: 'com.android.support'
     }
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
     implementation 'org.greenrobot:eventbus:3.1.1'
 }

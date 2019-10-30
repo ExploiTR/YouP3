@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-        android:name=".YouWorker"
+        android:name="utils.YouWorker"
         android:allowBackup="false"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:hardwareAccelerated="true"
@@ -27,10 +27,10 @@
         tools:replace="android:allowBackup,android:supportsRtl,android:theme,android:appComponentFactory"
         tools:targetApi="p">
         <activity
-            android:name=".AudioConverter"
+            android:name=".ui_access.AudioConverter"
             android:theme="@style/ConverterActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui_access.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -40,43 +40,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name=".ui_access.AboutActivity"
             android:theme="@style/AboutActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="########################################" />
+            android:value="b531c330857e24f378d562b1176ce4574483c2be" />
         <meta-data
             android:name="android.webkit.WebView.MetricsOptOut"
             android:value="true" />
 
         <activity
-            android:name=".DownloadsActivity"
+            android:name=".ui_access.DownloadsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/DownloadsActivity" />
         <activity
-            android:name=".BookMarkActivity"
+            android:name=".ui_access.BookMarkActivity"
             android:theme="@style/BookmarkActivity" />
 
         <service android:name="downloader.utils.DownloadExecutorService" />
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".ui_access.SettingsActivity"
             android:theme="@style/SettingsActivity" />
         <service android:name="converter.utils.ConverterService" />
 
         <activity
-            android:name=".MediaPlayer"
+            android:name="utils.MediaPlayer"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:supportsPictureInPicture="true"
             android:theme="@style/AppTheme.MediaPlayer"
             tools:targetApi="n" />
         <activity
-            android:name=".IntroActivity"
+            android:name=".ui_access.IntroActivity"
             android:theme="@style/Theme.Intro" />
         <activity
-            android:name=".SuperIntentReceiver"
+            android:name=".ui_access.SuperIntentReceiver"
             android:label="Direct">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
